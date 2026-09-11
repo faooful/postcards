@@ -64,6 +64,7 @@ introductionButton.addEventListener('click', async () => {
 });
 
 let lastCard = cards[0]?.id || '';
+let focusSelectedPostcard = false;
 listButton.addEventListener('click', () => { location.hash = lastCard; });
 gridButton.addEventListener('click', () => { location.hash = 'grid'; });
 for (const card of cards) {
@@ -101,8 +102,12 @@ for (const card of cards) {
     reference.textContent = card.reference;
     link.append(reference);
   }
-  link.addEventListener('click', () => {
-    if (window.matchMedia('(max-width: 760px)').matches) requestAnimationFrame(() => letter.focus());
+  link.addEventListener('click', event => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (matchMedia('(max-width: 640px)').matches) {
+      if (link.hash === location.hash) { letter.focus({ preventScroll: true }); letter.scrollIntoView({ block: 'start' }); }
+      else focusSelectedPostcard = true;
+    }
   });
   item.append(link);
   index.append(item);
@@ -194,9 +199,10 @@ async function changeRoute() {
   renderedRoute = next;
   const update = () => {
     render();
-    if (opening) letter.focus({ preventScroll: true });
+    if (opening || focusSelectedPostcard) letter.focus({ preventScroll: true });
     if (closing) tile?.focus({ preventScroll: true });
-    if (opening && matchMedia('(max-width: 760px)').matches) letter.scrollIntoView({ block: 'start' });
+    if ((opening || focusSelectedPostcard) && matchMedia('(max-width: 640px)').matches) letter.scrollIntoView({ block: 'start' });
+    focusSelectedPostcard = false;
   };
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (listChange && !reduced) {
