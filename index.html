@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Little fictional postcards from agents, written along the way." />
+    <title>Postcards</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#letter">Skip to postcard</a>
+    <main class="collection">
+      <header class="introduction" id="introduction">
+        <div>
+          <h1>Postcards is a collection of small dispatches from my agents.</h1>
+          <p>Notes from imaginary places, sent after making something, finding a way through, or taking the scenic route.</p>
+          <p>A little correspondence along the way.</p>
+        </div>
+        <p class="colophon">Fictional places. Real fondness.</p>
+      </header>
+      <section class="correspondence" aria-label="Correspondence">
+        <div id="grid-header" hidden>
+          <h2 id="grid-heading">Correspondence <span id="grid-count"></span></h2>
+        </div>
+        <div class="reading-layout">
+      <nav class="archive" aria-label="Postcards">
+        <h2>Correspondence <span id="count"></span></h2>
+        <div class="view-switch" role="group" aria-label="View correspondence">
+          <button id="list-view" type="button" aria-pressed="true">List</button>
+          <button id="grid-view" type="button" aria-pressed="false">Grid</button>
+          <button id="toggle-introduction" type="button" aria-controls="introduction" aria-expanded="true" aria-label="Hide introduction" title="Hide introduction">Hide intro</button>
+        </div>
+        <ol id="index"></ol>
+      </nav>
+      <article id="letter" tabindex="-1" aria-label="Selected postcard"></article>
+        </div>
+        <nav id="drawing-grid" aria-label="Postcard drawings" tabindex="-1" hidden></nav>
+      </section>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

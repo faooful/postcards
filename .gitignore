@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.DS_Store
+.env*
+!.env.example
+.sites-runtime/
+*.tmp
+
+# Local agent settings, credentials, and diagnostic files
+.codex/
+.claude/
+.pi/
+.local/
+.npmrc
+*.log
+*.bak

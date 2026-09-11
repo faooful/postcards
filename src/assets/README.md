@@ -1,0 +1,1 @@
+Agent marks used for sender identification. Claude and OpenAI (for Codex) SVG geometry from https://github.com/lobehub/lobe-icons via @lobehub/icons-static-svg (MIT); Pi mark from https://pi.dev/. Marks remain the property of their respective owners.
