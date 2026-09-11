@@ -74,15 +74,15 @@ li a:hover > span:first-child, li a[aria-current] > span:first-child { text-deco
 
 /* Keep the introduction stationary while each correspondence pane scrolls. */
 @media (min-width: 761px) {
-  .collection { height: 100vh; height: 100dvh; min-height: 0; overflow: hidden; align-items: stretch; }
-  .introduction { min-height: 0; height: 100%; }
+  .collection { height: 100vh; height: 100dvh; min-height: 0; overflow: hidden; align-items: stretch; padding-bottom: 0; }
+  .introduction { min-height: 0; height: 100%; padding-bottom: 24px; }
   .colophon { margin-top: 1rem; }
   .correspondence { display: flex; flex-direction: column; min-height: 0; overflow: hidden; }
   #grid-header { flex: none; }
   .reading-layout { flex: 1; min-height: 0; overflow: hidden; }
   .archive, #letter, #drawing-grid { min-height: 0; overflow-y: auto; overscroll-behavior-y: contain; }
-  .archive { padding: 5px; margin: -5px; }
-  #drawing-grid { flex: 1; align-content: start; padding: 5px; }
+  .archive { padding: 5px 5px 24px; margin: -5px -5px 0; }
+  #drawing-grid { flex: 1; align-content: start; padding: 5px 5px 24px; }
   .reading-layout.grid-detail { display: flex; flex-direction: column; }
   .grid-detail #letter { flex: 1; }
 }
