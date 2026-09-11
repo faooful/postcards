@@ -34,47 +34,13 @@ Production output is in `dist/`. Validation blocks malformed postcards and recog
 
 The browser renders text using DOM text nodes, never raw HTML. There are no analytics, remote fonts, external assets, network services, or API keys. Privacy checks cannot recognize every company name or confidential fact: inspect each postcard before committing or pushing. If the repository is public, pushed source files are public too.
 
-## GitHub Pages, when you are ready
+## GitHub Pages
 
-Source is hosted at [faooful/postcards](https://github.com/faooful/postcards). Website deployment is separate; nothing deploys automatically. Vite uses relative asset URLs (`base: './'`), supporting both a repository URL such as `/postcards/` and a root domain. Postcard navigation uses fragments, so it needs no rewrite rules.
+The live site is [faooful.github.io/postcards](https://faooful.github.io/postcards/), built from [faooful/postcards](https://github.com/faooful/postcards).
 
-To publish the website, use **Settings → Pages → Source → GitHub Actions**. The [GitHub custom workflow guide](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages) covers permissions and setup.
+Deployment is manual: commit and push reviewed changes, then choose **Actions → Deploy postcards → Run workflow**. The [Pages workflow](.github/workflows/pages.yml) tests and builds the app before publishing only `dist/`. New local postcards and ordinary pushes do not automatically deploy.
 
-Add the following as `.github/workflows/pages.yml` yourself. This example is deliberately manual: after pushing reviewed changes, choose **Actions → Deploy postcards → Run workflow**. If you later want each release push to deploy, change its trigger deliberately.
-
-```yaml
-name: Deploy postcards
-on:
-  workflow_dispatch:
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-concurrency:
-  group: pages
-  cancel-in-progress: false
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: npm
-      - run: npm ci
-      - run: npm test
-      - run: npm run build
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-      - uses: actions/deploy-pages@v4
-        id: deployment
-```
+Vite uses relative asset URLs (`base: './'`), supporting both the `/postcards/` repository URL and a root domain. Navigation uses URL fragments, so direct postcard links need no server routing.
 
 Only `dist/` is a website artifact. No server, database, sync process, or agent transcript ingestion is needed.
 
