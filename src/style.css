@@ -130,15 +130,16 @@ li a:hover > span:first-child, li a[aria-current] > span:first-child { text-deco
 .motion-tick { --scene-name: scene-tick; transform-box: view-box; }
 .motion-wheel { --scene-name: scene-tick; transform-box: view-box; }
 .motion-tail { --scene-name: scene-tail; transform-box: view-box; }
-@keyframes scene-bob { to { transform: translateY(-1.5px); } }
-@keyframes scene-sway { from { transform: rotate(-1deg); } to { transform: rotate(1deg); } }
-@keyframes scene-rise { to { transform: translateY(-2px); opacity: .55; } }
-@keyframes scene-wave { to { transform: translateX(2px); } }
-@keyframes scene-glow { from { opacity: .6; } to { opacity: 1; } }
-@keyframes scene-flame { to { transform: scale(.93, 1.08); opacity: .7; } }
-@keyframes scene-rain { to { transform: translate(-1px, 2px); opacity: .6; } }
-@keyframes scene-tick { to { transform: rotate(6deg); } }
-@keyframes scene-tail { to { transform: rotate(-3deg); } }
+/* Two held poses, joined gently rather than a continuous floating loop. */
+@keyframes scene-bob { 0%, 20% { transform: translateY(0); } 80%, 100% { transform: translateY(-3px); } }
+@keyframes scene-sway { 0%, 20% { transform: rotate(-2deg); } 80%, 100% { transform: rotate(2deg); } }
+@keyframes scene-rise { 0%, 20% { transform: translateY(0); opacity: 1; } 80%, 100% { transform: translateY(-4px); opacity: .65; } }
+@keyframes scene-wave { 0%, 20% { transform: translateX(-1px); } 80%, 100% { transform: translateX(3px); } }
+@keyframes scene-glow { 0%, 20% { opacity: .55; } 80%, 100% { opacity: 1; } }
+@keyframes scene-flame { 0%, 20% { transform: skewX(-3deg) scale(1, .97); opacity: 1; } 80%, 100% { transform: skewX(3deg) scale(.9, 1.1); opacity: .75; } }
+@keyframes scene-rain { 0%, 20% { transform: translate(0, 0); opacity: 1; } 80%, 100% { transform: translate(-2px, 4px); opacity: .6; } }
+@keyframes scene-tick { 0%, 20% { transform: rotate(0deg); } 80%, 100% { transform: rotate(12deg); } }
+@keyframes scene-tail { 0%, 20% { transform: rotate(0deg); } 80%, 100% { transform: rotate(-6deg); } }
 @media (max-width: 760px) {
   .drawing-tile { min-height: 150px; }
   .postcard-stamp { height: 150px; }
@@ -193,8 +194,8 @@ li a:hover > span:first-child, li a[aria-current] > span:first-child { text-deco
 #toggle-introduction { font: inherit; font-size: .8rem; padding: 4px 0; color: #777; }
 #toggle-introduction:hover { color: #191919; text-decoration: underline; text-underline-offset: .2em; }
 
-/* Tablet: introduction above a readable archive and letter, with page scrolling. */
-@media (max-width: 1100px) {
+/* Narrow screens only: keep the original three columns above 760px. */
+@media (max-width: 760px) {
   .collection { display: block; height: auto; min-height: 100svh; overflow: visible; padding: 24px; }
   .introduction { min-height: 0; height: auto; margin-bottom: 2rem; }
   .introduction > div { display: grid; grid-template-columns: 1fr 1.4fr 1fr; gap: 1.5rem; }
@@ -229,4 +230,10 @@ li a:hover > span:first-child, li a[aria-current] > span:first-child { text-deco
 @media (max-width: 400px) {
   .collection { padding: 16px; }
   #drawing-grid { grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); }
+}
+
+/* On compact screens the archive is a destination, not a panel above a letter. */
+@media (max-width: 760px) {
+  .reading-layout { display: block; }
+  #index { max-height: none; overflow: visible; }
 }

@@ -12,6 +12,7 @@ for (const [path, source] of Object.entries(sources)) {
 }
 cards.sort((a, b) => (b.created || b.date).localeCompare(a.created || a.date) || b.id.localeCompare(a.id));
 const index = document.querySelector<HTMLOListElement>('#index')!;
+index.tabIndex = -1;
 const letter = document.querySelector<HTMLElement>('#letter')!;
 const grid = document.querySelector<HTMLElement>('#drawing-grid')!;
 const reading = document.querySelector<HTMLElement>('.reading-layout')!;
@@ -63,9 +64,10 @@ introductionButton.addEventListener('click', async () => {
   }
 });
 
+const compactLayout = matchMedia('(max-width: 760px)');
 let lastCard = cards[0]?.id || '';
 let focusSelectedPostcard = false;
-listButton.addEventListener('click', () => { location.hash = lastCard; });
+listButton.addEventListener('click', () => { location.hash = compactLayout.matches ? 'list' : lastCard; });
 gridButton.addEventListener('click', () => { location.hash = 'grid'; });
 for (const card of cards) {
   const tile = document.createElement('a');
@@ -80,7 +82,7 @@ for (const card of cards) {
 if (!cards.length) grid.textContent = 'No postcards yet. Something will arrive along the way.';
 document.querySelector<HTMLAnchorElement>('.skip-link')!.addEventListener('click', event => {
   event.preventDefault();
-  (location.hash === '#grid' ? grid : letter).focus();
+  (location.hash === '#grid' ? grid : letter.hidden ? index : letter).focus();
 });
 document.querySelector('#count')!.textContent = cards.length ? `(${cards.length})` : '';
 document.querySelector('#grid-count')!.textContent = cards.length ? `(${cards.length})` : '';
@@ -104,7 +106,7 @@ for (const card of cards) {
   }
   link.addEventListener('click', event => {
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    if (matchMedia('(max-width: 640px)').matches) {
+    if (compactLayout.matches) {
       if (link.hash === location.hash) { letter.focus({ preventScroll: true }); letter.scrollIntoView({ block: 'start' }); }
       else focusSelectedPostcard = true;
     }
@@ -115,25 +117,33 @@ for (const card of cards) {
 function render() {
   const route = location.hash.slice(1);
   const gridDetail = route.startsWith('grid/');
-  const id = gridDetail ? route.slice(5) : route;
+  const listOverview = route === 'list' || (compactLayout.matches && !route);
+  const mobileDetail = compactLayout.matches && !listOverview && route !== 'grid' && !gridDetail;
+  const id = gridDetail ? route.slice(5) : route === 'list' ? '' : route;
   const isGrid = route === 'grid';
   const gridMode = isGrid || gridDetail;
-  reading.classList.toggle('grid-detail', gridDetail);
-  document.querySelector<HTMLElement>('.archive')!.hidden = gridDetail;
+  reading.classList.toggle('grid-detail', gridDetail || mobileDetail);
+  document.querySelector<HTMLElement>('.archive')!.hidden = gridDetail || mobileDetail;
   grid.hidden = !isGrid;
   const gridHeader = document.querySelector<HTMLElement>('#grid-header')!;
-  gridHeader.hidden = !gridMode;
+  gridHeader.hidden = !(gridMode || mobileDetail);
   const viewSwitch = document.querySelector<HTMLElement>('.view-switch')!;
-  const destination = gridMode ? gridHeader : document.querySelector<HTMLElement>('.archive')!;
+  const destination = gridMode || mobileDetail ? gridHeader : document.querySelector<HTMLElement>('.archive')!;
   if (viewSwitch.parentElement !== destination) {
     const focused = document.activeElement;
     destination.querySelector('h2')!.after(viewSwitch);
     if (focused === listButton || focused === gridButton || focused === introductionButton) (focused as HTMLElement).focus({ preventScroll: true });
   }
   reading.hidden = isGrid;
+  letter.hidden = compactLayout.matches && listOverview;
   listButton.setAttribute('aria-pressed', String(!gridMode));
   gridButton.setAttribute('aria-pressed', String(gridMode));
-  if (isGrid) { document.title = 'Postcards — Grid'; return; }
+  if (isGrid || (compactLayout.matches && listOverview)) {
+    disposeStamps(letter);
+    letter.replaceChildren();
+    document.title = isGrid ? 'Postcards — Grid' : 'Postcards — List';
+    return;
+  }
   const card = id ? cards.find(c => c.id === id) : cards[0];
   if (card) lastCard = card.id;
   disposeStamps(letter);
@@ -169,9 +179,9 @@ function render() {
     letter.append(p);
   }
   const signature = document.createElement('p'); signature.className = 'signature'; signature.textContent = `Yours, ${card.sender}`; letter.append(signature);
-  if (gridDetail) {
+  if (gridDetail || mobileDetail) {
     const back = document.createElement('a');
-    back.href = '#grid'; back.className = 'back-to-grid'; back.textContent = 'Back to correspondence';
+    back.href = gridDetail ? '#grid' : '#list'; back.className = 'back-to-grid'; back.textContent = 'Back to correspondence';
     letter.append(back);
   }
 }
@@ -201,7 +211,12 @@ async function changeRoute() {
     render();
     if (opening || focusSelectedPostcard) letter.focus({ preventScroll: true });
     if (closing) tile?.focus({ preventScroll: true });
-    if ((opening || focusSelectedPostcard) && matchMedia('(max-width: 640px)').matches) letter.scrollIntoView({ block: 'start' });
+    if (compactLayout.matches && next === 'list') {
+      const previousLink = Array.from(index.querySelectorAll<HTMLAnchorElement>('a')).find(link => link.dataset.id === lastCard);
+      (previousLink ?? index).focus({ preventScroll: true });
+      (previousLink ?? index).scrollIntoView({ block: 'nearest' });
+    }
+    if ((opening || focusSelectedPostcard) && compactLayout.matches) letter.scrollIntoView({ block: 'start' });
     focusSelectedPostcard = false;
   };
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -252,5 +267,6 @@ async function changeRoute() {
     if (activeTransition === transition) activeTransition = undefined;
   });
 }
+compactLayout.addEventListener('change', () => { activeTransition?.skipTransition(); render(); });
 window.addEventListener('hashchange', changeRoute);
 render();

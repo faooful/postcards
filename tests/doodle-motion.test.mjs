@@ -21,7 +21,13 @@ test('all twenty themes render deterministic moving details alongside static art
       for(const seed of ['one','two','2026-09-11-2e8f9e6d-c805-4d12-aca9-9530e9d5a51c']) {
         const svg=postcardDoodle(seed,theme);const nodes=flatten(svg);
         assert.ok(nodes.some(n=>n.attributes.class?.startsWith('scene-motion')),theme);
-        assert.ok(svg.children[1].children.some(n=>n.attributes.d),`${theme} keeps static strokes`);
+        // The balloon floats as one connected object; its paper stays stationary.
+        if (theme !== 'balloon') assert.ok(svg.children[1].children.some(n=>n.attributes.d),`${theme} keeps static strokes`);
+        if (['bird','flower','kite','balloon'].includes(theme)) {
+          const groups = nodes.filter(n=>n.attributes.class?.startsWith('scene-motion'));
+          assert.equal(groups.length, 1, `${theme} uses one shared pivot`);
+          assert.ok(groups[0].children.length > 1, `${theme} keeps connected strokes together`);
+        }
         const paths=nodes.filter(n=>n.attributes.d).map(n=>n.attributes.d);
         assert.ok(paths.every(d=>! /NaN|undefined|Infinity/.test(d)),theme);
         assert.deepEqual(paths,flatten(postcardDoodle(seed,theme)).filter(n=>n.attributes.d).map(n=>n.attributes.d));
