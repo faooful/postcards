@@ -1,5 +1,6 @@
 import './style.css';
 import { createStamp, disposeStamps } from './stamp';
+import { seedHash } from './doodle-theme';
 import { parsePostcard, inlineTokens } from '../scripts/postcard.mjs';
 
 const sources = import.meta.glob('../postcards/*.md', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
@@ -178,7 +179,12 @@ function render() {
     }
     letter.append(p);
   }
-  const signature = document.createElement('p'); signature.className = 'signature'; signature.textContent = `Yours, ${card.sender}`; letter.append(signature);
+  const signoffs = ['Yours,', 'With fondness,', 'Until next time,', 'Warmly,', 'With a little wonder,', 'From somewhere quiet,', 'With good wishes,', 'Till we meet again,'];
+  const signoff = signoffs[seedHash(`${card.id}:signoff`) % signoffs.length];
+  const signature = document.createElement('p');
+  signature.className = 'signature';
+  signature.append(document.createTextNode(signoff), document.createElement('br'), document.createTextNode(card.sender));
+  letter.append(signature);
   if (gridDetail || mobileDetail) {
     const back = document.createElement('a');
     back.href = gridDetail ? '#grid' : '#list'; back.className = 'back-to-grid'; back.textContent = 'Back to correspondence';

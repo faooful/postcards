@@ -59,6 +59,7 @@ test('skip, validation failure, read-only mode and maintenance never cause remin
   assert.deepEqual(hook('claude',{hook_event_name:'Stop'}),{});
   token=begin();
   assert.equal(exec('write-postcard.mjs',['--receipt',token],'private invalid text').status,1);
+  assert.equal(exec('write-postcard.mjs',['--receipt',token],'still invalid').status,1);
   assert.match(hook('claude',{hook_event_name:'Stop'}).systemMessage,/failed/);
   assert.equal(exec('write-postcard.mjs',['--receipt',token],prose).status,1);
   assert.equal(begin('claude',{permission_mode:'plan'}),undefined);
@@ -114,4 +115,34 @@ test('validation failure does not consume the session delivery allowance',async(
   const next=begin();
   assert.ok(next);
   assert.equal(exec('write-postcard.mjs',['--receipt',next],prose).status,0);
+}));
+
+
+test('one same-receipt correction succeeds for every agent without duplicate delivery',async()=>fixture(async({root,exec,begin})=>{
+  for (const agent of ['claude','codex','pi']) {
+    const token=begin(agent);
+    const rejected=exec('write-postcard.mjs',['--receipt',token],'PRIVATE invalid draft');
+    assert.equal(rejected.status,1);
+    assert.match(rejected.stderr,/retry once with this same receipt/);
+    assert.doesNotMatch(rejected.stderr,/PRIVATE/);
+    const record=JSON.parse(await readFile(join(root,'state',token+'.json'),'utf8'));
+    assert.equal(record.status,'pending');
+    assert.equal(record.validationFailures,1);
+    assert.equal(exec('write-postcard.mjs',['--receipt',token],prose).status,0);
+    assert.equal(exec('write-postcard.mjs',['--receipt',token],prose).status,0);
+    assert.equal(begin(agent),undefined);
+  }
+  assert.equal((await readdir(join(root,'postcards'))).length,3);
+}));
+
+test('saving failures close the receipt without offering a validation retry',async()=>fixture(async({root,exec,begin})=>{
+  const token=begin();
+  await rm(join(root,'postcards'),{recursive:true});
+  const {writeFile}=await import('node:fs/promises');
+  await writeFile(join(root,'postcards'),'not a directory');
+  const result=exec('write-postcard.mjs',['--receipt',token],prose);
+  assert.equal(result.status,1);
+  assert.doesNotMatch(result.stderr,/retry once/);
+  assert.equal(JSON.parse(await readFile(join(root,'state',token+'.json'),'utf8')).status,'failed');
+  assert.equal(exec('write-postcard.mjs',['--receipt',token],prose).status,1);
 }));

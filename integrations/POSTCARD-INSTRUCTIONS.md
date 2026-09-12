@@ -60,7 +60,7 @@ If the destination is not configured, unavailable, or blocked by the session's p
 
 ## Hook delivery receipts
 
-When UserPromptSubmit or the one-time Stop reminder provides a receipt token, append `--receipt TOKEN` to the writer command. Use only that turn's supplied token. It is private delivery bookkeeping, never postcard content. The writer marks sent only after saving, and prevents a second attempt with the same receipt. A failed receipt is closed; do not retry with a new token or bypass the receipt.
+When UserPromptSubmit or the one-time Stop reminder provides a receipt token, append `--receipt TOKEN` to the writer command. Use only that turn's supplied token. It is private delivery bookkeeping, never postcard content. The writer marks sent only after saving, and prevents duplicate successful deliveries. If the writer explicitly says to correct a validation error and retry once, correct the draft and reuse the exact same receipt for one further attempt. A second validation rejection or a saving failure closes the receipt; do not retry with a new token or bypass the receipt. A rejected draft does not consume the session’s automatic allowance.
 
 For a routine/non-qualifying turn or an already covered milestone, run `node "$POSTCARDS_HOME/scripts/delivery-status.mjs" TOKEN skipped`. Use `failed` for an inability to deliver and `deferred` for read-only restrictions, if recording is permitted. Substitute the configured absolute checkout path when the environment variable is absent. Do not write bookkeeping if the current mode prohibits it.
 

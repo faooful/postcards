@@ -12,6 +12,7 @@ let claimed = false;
 let deliveryState;
 let sessionClaim;
 let saved = false;
+let validating = false;
 try {
   const args = process.argv.slice(2);
   if (args.length && (args.length !== 2 || args[0] !== '--receipt')) throw new PostcardError('Use optional --receipt TOKEN and Markdown on standard input.');
@@ -29,14 +30,19 @@ try {
       if (error.code === 'EEXIST') throw new PostcardError('This delivery receipt has already been attempted; no duplicate created.');
       throw new PostcardError('Cannot claim delivery receipt; check local delivery-state folder access.');
     }
+    // Re-read under the claim: another process may have updated the receipt.
+    deliveryState = await receipt(token);
+    if (deliveryState.status !== 'pending') throw new PostcardError('This delivery receipt is already closed.');
   }
   let source = '';
+  validating = true;
   for await (const chunk of process.stdin) {
     source += chunk.toString();
     if (source.length > 12000) throw new PostcardError('Postcard is too large.');
   }
   const card = parsePostcard(source);
   if (!card.reference) throw new PostcardError('Add a short public-safe reference describing the completed work.');
+  validating = false;
   if (deliveryState?.sessionKey) {
     if (!/^[a-f0-9]{64}$/.test(deliveryState.sessionKey)) throw new PostcardError('Invalid delivery session.');
     const claim = join(stateRoot, deliveryState.sessionKey + '.delivery');
@@ -63,8 +69,18 @@ try {
   process.stdout.write(`Saved postcards/${name}. Review locally before committing or pushing.\n`);
 } catch (error) {
   if (sessionClaim && !saved) await rmdir(sessionClaim).catch(() => {});
-  if (token && claimed) await mark(token, 'failed').catch(() => {});
+  let retryAllowed = false;
+  if (token && claimed) {
+    if (validating && error instanceof PostcardError && !deliveryState.validationFailures) {
+      try {
+        await mark(token, 'pending', { validationFailures: 1 });
+        await rmdir(join(stateRoot, token + '.claim'));
+        retryAllowed = true;
+      } catch { await mark(token, 'failed').catch(() => {}); }
+    } else await mark(token, 'failed').catch(() => {});
+  }
   if (temp) await unlink(temp).catch(() => {});
   process.stderr.write(`${error instanceof PostcardError ? error.message : 'Unable to save postcard; check local folder access.'}\n`);
+  if (retryAllowed) process.stderr.write('Correct the validation error and retry once with this same receipt. Do not create a new receipt or omit it.\n');
   process.exitCode = 1;
 }
