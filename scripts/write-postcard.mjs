@@ -1,5 +1,6 @@
+import { selectArtwork } from './artwork.mjs';
 import { randomUUID } from 'node:crypto';
-import { mkdir, writeFile, link, unlink, rmdir } from 'node:fs/promises';
+import { mkdir, writeFile, link, unlink, rmdir, readdir, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 import { parsePostcard, PostcardError } from './postcard.mjs';
@@ -56,9 +57,18 @@ try {
       }
     }
   }
+  const id = `${card.date}-${randomUUID()}`;
+  if (!card.artwork) {
+    const history = [];
+    for (const file of await readdir(folder).catch(error => { if(error.code === 'ENOENT') return []; throw error; })) {
+      if (!file.endsWith('.md')) continue;
+      try { history.push({...parsePostcard(await readFile(join(folder,file),'utf8')), id:file.slice(0,-3)}); } catch { /* Ignore invalid historical entries. */ }
+    }
+    source = source.replace(/^---\r?\n/, `---\nartwork: ${selectArtwork({...card,id},history)}\n`);
+  }
   const created = new Date().toISOString();
   source = source.replace(/\r\n/g, '\n').replace(/^created: .*\n/m, '').replace(/^---\n/, `---\ncreated: ${created}\n`);
-  const name = `${card.date}-${randomUUID()}.md`;
+  const name = `${id}.md`;
   await mkdir(folder, { recursive: true });
   temp = join(folder, `.${randomUUID()}.tmp`);
   await writeFile(temp, source.trim() + '\n', { flag: 'wx', mode: 0o600 });

@@ -31,7 +31,7 @@ test('writer validates before saving, creates distinct complete files, and needs
   const root = await mkdtemp(join(tmpdir(), 'postcards-test-'));
   try {
     await mkdir(join(root, 'scripts'));
-    for (const name of ['postcard.mjs', 'write-postcard.mjs', 'delivery.mjs']) await cp(new URL(`../scripts/${name}`, import.meta.url), join(root, 'scripts', name));
+    for (const name of ['artwork.mjs', 'postcard.mjs', 'write-postcard.mjs', 'delivery.mjs']) await cp(new URL(`../scripts/${name}`, import.meta.url), join(root, 'scripts', name));
     const run = input => spawnSync(process.execPath, [join(root, 'scripts/write-postcard.mjs')], { input, encoding: 'utf8', env: { PATH: '' } });
     const rejected = run(source(`${body} private@example.com`));
     assert.equal(rejected.status, 1);
@@ -46,7 +46,7 @@ test('writer validates before saving, creates distinct complete files, and needs
       assert.match(name, /^2026-09-10-[0-9a-f-]{36}\.md$/);
       const saved = await readFile(join(root, 'postcards', name), 'utf8');
       assert.ok(parsePostcard(saved).created);
-      assert.equal(saved.replace(/^created: .*\n/m, ''), source());
+      assert.equal(saved.replace(/^created: .*\n/m, '').replace(/^artwork: .*\n/m, ''), source());
     }
     const writer = await readFile(join(root, 'scripts/write-postcard.mjs'), 'utf8');
     assert.doesNotMatch(writer, /fetch\(|node:(?:https?|net|child_process)|exec\(|spawn\(/);

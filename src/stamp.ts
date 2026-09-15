@@ -1,6 +1,6 @@
+import { renderArtwork } from './artwork';
 import { postmark } from './postmark';
-import { postcardDoodle } from './doodle';
-import { chooseDoodleTheme, seedHash } from './doodle-theme';
+import { seedHash } from './doodle-theme';
 
 const palettes = [
   ['#e5ebdf', '#465b43'], ['#e3eaf0', '#40596e'], ['#f0e2df', '#79514f'],
@@ -18,7 +18,7 @@ document.addEventListener('visibilitychange', updateMotion);
 export function disposeStamps(root: HTMLElement) {
   root.querySelectorAll<HTMLElement>('.postcard-stamp').forEach(stamp => { observer?.unobserve(stamp); visible.delete(stamp); });
 }
-export function createStamp(card: {id: string; title: string; sender: string; body: string}, interactive = false) {
+export function createStamp(card: {artwork?: string; id: string; title: string; sender: string; body: string}, interactive = false) {
   const stamp = document.createElement('div');
   stamp.className = 'postcard-stamp';
   const seed = seedHash(card.id);
@@ -34,7 +34,7 @@ export function createStamp(card: {id: string; title: string; sender: string; bo
   stamp.style.setProperty('--scene-delay', `-${seed % 5000 / 1000}s`);
   if (interactive) { stamp.tabIndex = 0; stamp.setAttribute('role', 'img'); stamp.setAttribute('aria-label', `${card.title} — ${card.sender} postage stamp`); }
   else stamp.setAttribute('aria-hidden', 'true');
-  const drawing = postcardDoodle(card.id, chooseDoodleTheme(card));
+  const drawing = renderArtwork(card);
   drawing.setAttribute('aria-hidden', 'true');
   stamp.append(drawing, postmark(card.sender));
   let hoverBounds: DOMRect | undefined;

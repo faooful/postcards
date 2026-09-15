@@ -4,7 +4,7 @@ import { seedHash } from './doodle-theme';
 import { parsePostcard, inlineTokens } from '../scripts/postcard.mjs';
 
 const sources = import.meta.glob('../postcards/*.md', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
-const cards: { id: string; title: string; date: string; sender: string; created: string; reference: string; body: string }[] = [];
+const cards: { artwork?: string; id: string; title: string; date: string; sender: string; created: string; reference: string; body: string }[] = [];
 let invalid = 0;
 for (const [path, source] of Object.entries(sources)) {
   try {

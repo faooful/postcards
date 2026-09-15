@@ -1,3 +1,4 @@
+import { validArtwork } from './artwork.mjs';
 export class PostcardError extends Error {}
 const reject = (message) => { throw new PostcardError(message); };
 
@@ -22,7 +23,7 @@ export function parsePostcard(source) {
   if (!match) reject('Expected title, date, and sender frontmatter.');
   const fields = {};
   for (const line of match[1].split('\n')) {
-    const field = /^(title|date|sender|reference|created): (.+)$/.exec(line);
+    const field = /^(title|date|sender|reference|created|artwork): (.+)$/.exec(line);
     if (!field || Object.hasOwn(fields, field[1])) reject('Unknown, duplicate, or malformed metadata.');
     fields[field[1]] = field[2].trim();
   }
@@ -33,6 +34,7 @@ export function parsePostcard(source) {
   if (fields.reference !== undefined && !/^[\p{L}\p{N} ,.!?‘’'“”()—–-]{3,100}$/u.test(fields.reference)) reject('Reference must be plain text, 3–100 characters.');
   if (!/^\d{4}-\d{2}-\d{2}$/.test(fields.date) || !Number.isFinite(Date.parse(fields.date)) || new Date(fields.date).toISOString().slice(0, 10) !== fields.date) reject('Date must be a real YYYY-MM-DD date.');
   if (fields.created && (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(fields.created) || !Number.isFinite(Date.parse(fields.created)))) reject('Created must be a valid UTC timestamp.');
+  if (fields.artwork !== undefined && !validArtwork(fields.artwork)) reject('Invalid artwork identifier.');
   const body = match[2].trim();
   const words = body.split(/\s+/).filter(Boolean).length;
   if (words < 20 || words > 150) reject('Body must contain 20–150 words; aim for 60–100.');
@@ -53,5 +55,5 @@ export function parsePostcard(source) {
     /(?:\+?\d[\d ().-]*){9,}/
   ];
   if (sensitive.some(pattern => pattern.test(content))) reject('Potential private information or external reference detected.');
-  return { title: fields.title, date: fields.date, sender, created: fields.created || '', reference: fields.reference || '', body };
+  return { artwork: fields.artwork || '', title: fields.title, date: fields.date, sender, created: fields.created || '', reference: fields.reference || '', body };
 }
