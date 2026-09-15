@@ -1,6 +1,7 @@
 import { renderArtwork } from './artwork';
 import { postmark } from './postmark';
 import { seedHash } from './doodle-theme';
+import { attachStampTilt } from './stamp-tilt';
 
 const palettes = [
   ['#e5ebdf', '#465b43'], ['#e3eaf0', '#40596e'], ['#f0e2df', '#79514f'],
@@ -8,15 +9,18 @@ const palettes = [
 ];
 let observer: IntersectionObserver | undefined;
 const visible = new Set<HTMLElement>();
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+const cleanups = new WeakMap<HTMLElement, () => void>();
 function updateMotion() {
   for (const stamp of visible) {
     if (!stamp.isConnected) { visible.delete(stamp); observer?.unobserve(stamp); continue; }
-    stamp.classList.toggle('is-moving', !document.hidden);
+    stamp.classList.toggle('is-moving', !document.hidden && !reducedMotion.matches);
   }
 }
 document.addEventListener('visibilitychange', updateMotion);
+reducedMotion.addEventListener('change', updateMotion);
 export function disposeStamps(root: HTMLElement) {
-  root.querySelectorAll<HTMLElement>('.postcard-stamp').forEach(stamp => { observer?.unobserve(stamp); visible.delete(stamp); });
+  root.querySelectorAll<HTMLElement>('.postcard-stamp').forEach(stamp => { observer?.unobserve(stamp); visible.delete(stamp); cleanups.get(stamp)?.(); cleanups.delete(stamp); });
 }
 export function createStamp(card: {artwork?: string; id: string; title: string; sender: string; body: string}, interactive = false) {
   const stamp = document.createElement('div');
@@ -36,26 +40,13 @@ export function createStamp(card: {artwork?: string; id: string; title: string; 
   else stamp.setAttribute('aria-hidden', 'true');
   const drawing = renderArtwork(card);
   drawing.setAttribute('aria-hidden', 'true');
-  stamp.append(drawing, postmark(card.sender));
-  let hoverBounds: DOMRect | undefined;
-  const reset = () => {
-    hoverBounds = undefined;
-    stamp.classList.remove('is-tilting');
-    stamp.style.removeProperty('--tilt-x'); stamp.style.removeProperty('--tilt-y');
-  };
-  stamp.addEventListener('pointerenter', () => { hoverBounds = stamp.getBoundingClientRect(); });
-  stamp.addEventListener('pointermove', event => {
-    if (event.pointerType !== 'mouse' || matchMedia('(prefers-reduced-motion: reduce)').matches) { reset(); return; }
-    // Use the entry bounds so the transform cannot feed back into mouse coordinates.
-    const rect = hoverBounds ??= stamp.getBoundingClientRect();
-    const angle = (value: number) => Math.max(-10, Math.min(10, value));
-    stamp.classList.add('is-tilting');
-    stamp.style.setProperty('--tilt-x', `${angle((.5 - (event.clientY-rect.top)/rect.height)*20)}deg`);
-    stamp.style.setProperty('--tilt-y', `${angle(((event.clientX-rect.left)/rect.width-.5)*20)}deg`);
-  });
-  stamp.addEventListener('pointerleave', reset);
-  stamp.addEventListener('pointercancel', reset);
-  stamp.addEventListener('blur', reset);
+  // A small paint boundary keeps animated SVG strokes separate from the paper,
+  // perforation mask and postmark. Only visible, moving drawings get a layer.
+  const artwork = document.createElement('div');
+  artwork.className = 'stamp-artwork';
+  artwork.append(drawing);
+  stamp.append(artwork, postmark(card.sender));
+  cleanups.set(stamp, attachStampTilt(stamp, reducedMotion));
   observer ??= new IntersectionObserver(entries => {
     for (const entry of entries) {
       const target = entry.target as HTMLElement;

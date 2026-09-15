@@ -109,7 +109,10 @@ li a:hover > span:first-child, li a[aria-current] > span:first-child { text-deco
     linear-gradient(#000 0 0) center / calc(100% - 12px) calc(100% - 12px) no-repeat;
 }
 .postcard-stamp::after { content: ''; position: absolute; inset: 12px; border: 1px solid currentColor; opacity: .22; pointer-events: none; }
-.postcard-stamp .postcard-doodle { width: 128px; max-width: calc(100% - 32px); margin: 0; color: inherit; overflow: visible; }
+/* Contain SVG repaints in a padded drawing layer; never clip the paper edges. */
+.stamp-artwork { width: 148px; max-width: calc(100% - 12px); padding: 10px; contain: layout paint; }
+.postcard-stamp .postcard-doodle { width: 100%; max-width: 100%; margin: 0; color: inherit; overflow: visible; }
+.is-moving > .stamp-artwork { will-change: transform; }
 
 .drawing-tile .postcard-stamp { margin: 0; }
 .drawing-tile:hover { background: none; }
