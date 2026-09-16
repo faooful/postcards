@@ -34,7 +34,7 @@ export function createStamp(card: {artwork?: string; id: string; title: string; 
   const [paper, ink] = palettes[seed % palettes.length];
   stamp.style.setProperty('--stamp-paper', paper);
   stamp.style.setProperty('--stamp-ink', ink);
-  stamp.style.setProperty('--scene-duration', `${5 + seed % 2001 / 1000}s`);
+  stamp.style.setProperty('--scene-duration', `${3 + seed % 1501 / 1000}s`);
   stamp.style.setProperty('--scene-delay', `-${seed % 5000 / 1000}s`);
   if (interactive) { stamp.tabIndex = 0; stamp.setAttribute('role', 'img'); stamp.setAttribute('aria-label', `${card.title} — ${card.sender} postage stamp`); }
   else stamp.setAttribute('aria-hidden', 'true');
