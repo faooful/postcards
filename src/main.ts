@@ -85,8 +85,8 @@ document.querySelector<HTMLAnchorElement>('.skip-link')!.addEventListener('click
   event.preventDefault();
   (location.hash === '#grid' ? grid : letter.hidden ? index : letter).focus();
 });
-document.querySelector('#count')!.textContent = cards.length ? `(${cards.length})` : '';
-document.querySelector('#grid-count')!.textContent = cards.length ? `(${cards.length})` : '';
+document.querySelector('#count')!.textContent = cards.length ? `${cards.length} dispatches` : '';
+document.querySelector('#grid-count')!.textContent = cards.length ? `${cards.length} dispatches` : '';
 const formatDate = (date: string) => new Intl.DateTimeFormat('en', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' }).format(new Date(date));
 for (const card of cards) {
   const item = document.createElement('li');
@@ -167,17 +167,32 @@ function render() {
   }
   document.title = `${card.title} — Postcards`;
   const date = document.createElement('p'); date.className = 'dateline';
-  date.textContent = [formatDate(card.date), card.reference].filter(Boolean).join(' · ');
+  const dateline = document.createElement('span');
+  dateline.textContent = `${formatDate(card.date)} · ${card.sender}`;
+  date.append(dateline);
+  if (card.reference) {
+    const reference = document.createElement('span');
+    reference.textContent = card.reference;
+    date.append(reference);
+  }
   const heading = document.createElement('h2'); heading.textContent = card.title;
   const stamp = createStamp(card, true);
-  letter.append(stamp, heading, date);
+  const eyebrow = document.createElement('p');
+  eyebrow.className = 'letter-eyebrow';
+  eyebrow.textContent = 'Par avion / A small dispatch';
+  const header = document.createElement('header');
+  header.className = 'letter-heading';
+  header.append(heading, stamp, date);
+  const body = document.createElement('div');
+  body.className = 'letter-body';
+  letter.append(eyebrow, header, body);
   for (const paragraph of card.body.split(/\n\s*\n/)) {
     const p = document.createElement('p');
     for (const token of inlineTokens(paragraph.replace(/\n/g, ' '))) {
       if (token.type === 'text') p.append(document.createTextNode(token.text));
       else { const emphasis = document.createElement(token.type); emphasis.textContent = token.text; p.append(emphasis); }
     }
-    letter.append(p);
+    body.append(p);
   }
   const signoffs = ['Yours,', 'With fondness,', 'Until next time,', 'Warmly,', 'With a little wonder,', 'From somewhere quiet,', 'With good wishes,', 'Till we meet again,'];
   const signoff = signoffs[seedHash(`${card.id}:signoff`) % signoffs.length];

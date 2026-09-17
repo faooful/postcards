@@ -1,90 +1,117 @@
-:root { font-family: Georgia, 'Times New Roman', serif; color: #191919; background: #fff; font-synthesis: none; font-size: 20px; }
+/* Blue Airmail: correspondence beside a quiet sheet of writing paper. */
+:root {
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #35435c;
+  background: #f2f5f9;
+  font-synthesis: none;
+  --blue: #284dab;
+  --heading: #24478e;
+  --muted: #61728d;
+  --sans: 'Helvetica Neue', Arial, sans-serif;
+}
 * { box-sizing: border-box; }
 body { margin: 0; }
-a { color: inherit; text-underline-offset: .13em; }
-a:focus-visible { outline: 1px solid currentColor; outline-offset: 5px; }
-.collection { display: grid; grid-template-columns: 29% 21% minmax(0, 1fr); gap: 3%; padding: 24px; min-height: 100svh; align-items: start; }
-h1, h2, p { font-size: 1rem; font-weight: normal; line-height: 1.35; margin: 0 0 1.35rem; }
-.introduction { min-height: calc(100svh - 48px); display: flex; flex-direction: column; justify-content: space-between; }
-.introduction p { max-width: 27em; }
-.colophon { margin-top: 5rem; margin-bottom: 0; }
-.archive h2, .dateline, .metadata { color: #777; }
-.archive h2 { margin-bottom: 1.35rem; }
-#count { font-size: .75rem; }
-ol { padding: 0; margin: 0; list-style: none; }
-li { margin-bottom: 1.15rem; }
-li a { display: inline-block; text-decoration: none; line-height: 1.3; }
-li a:hover > span:first-child, li a[aria-current] > span:first-child { text-decoration: underline; text-underline-offset: .15em; }
-.metadata { display: block; font-size: max(14px, .7rem); margin-top: .25rem; line-height: 1.5; }
-#letter { padding: 0 0 3rem; scroll-margin-top: 1.2rem; }
-#letter:focus { outline: none; }
-#letter h2 { font-style: italic; margin-bottom: .5rem; }
-.dateline { font-size: max(14px, .75rem); margin: 0 0 1.5rem; }
-#letter p { max-width: 38em; }
-.signature { margin-top: 2rem; }
-.validation-notice { font-size: .75rem; }
-.skip-link { position: fixed; top: -100px; left: 20px; padding: 12px; background: #fff; z-index: 1; }
-.skip-link:focus { top: 12px; }
-@media (min-width: 1700px) { :root { font-size: 22px; } }
-@media (max-width: 1000px) { .collection { grid-template-columns: 25% 25% minmax(0, 1fr); gap: 3%; padding: 20px; } :root { font-size: 18px; } }
-@media (max-width: 760px) {
-  .collection { display: block; padding: 24px; }
-  .introduction { min-height: auto; margin-bottom: 2.8rem; }
-  .introduction p { max-width: 32em; }
-  .colophon { display: none; }
-  .archive { margin-bottom: 3.5rem; }
-  li { margin-bottom: 1rem; }
-  #letter { padding-bottom: 2rem; }
-}
-
-.postcard-doodle { display: block; width: 160px; height: auto; max-width: 100%; margin: 1.5rem 0 .6rem; color: #292723; }
-.postcard-doodle + .signature { margin-top: .5rem; }
-
-/* Both browsing modes share the same correspondence area. */
-.correspondence { grid-column: 2 / -1; min-width: 0; }
-.view-switch { display: flex; gap: .8rem; margin: 0 0 1.4rem; }
-.view-switch button { font: inherit; font-size: .8rem; color: #777; border: 0; background: none; padding: 4px 0; cursor: pointer; }
-.view-switch button[aria-pressed="true"] { color: #191919; text-decoration: underline; text-underline-offset: .2em; }
-.view-switch button:focus-visible { outline: 1px solid currentColor; outline-offset: 4px; }
-.reading-layout { display: grid; grid-template-columns: minmax(0, 21fr) minmax(0, 44fr); gap: 4.4%; }
 [hidden] { display: none !important; }
-#drawing-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1.8rem; align-items: center; }
-.drawing-tile { display: flex; justify-content: flex-start; align-items: center; min-height: 174px; text-decoration: none; border-radius: 3px; }
-.drawing-tile:hover { background: #fafaf8; }
-.drawing-tile .postcard-doodle { width: 180px; margin: 0; }
-.back-to-grid { display: inline-block; font-size: .75rem; color: #777; margin-bottom: 1.3rem; }
-@media (max-width: 1000px) { .reading-layout { grid-template-columns: minmax(0, 25fr) minmax(0, 44fr); } }
-@media (max-width: 760px) {
- .reading-layout { display: block; }
- #drawing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; }
- .drawing-tile { min-height: 150px; }
- .drawing-tile .postcard-doodle { width: 150px; }
+a { color: inherit; text-underline-offset: .2em; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a:focus-visible, button:focus-visible, #index:focus-visible, #drawing-grid:focus-visible {
+  outline: 2px solid var(--blue); outline-offset: 4px;
 }
-
-.reading-layout.grid-detail { display: block; }
-.grid-detail #letter { max-width: 38em; }
-
-#grid-heading { color: #777; margin-bottom: 1.35rem; }
-#grid-count { font-size: .75rem; }
-
-.archive h2, #grid-heading { margin-bottom: .35rem; }
-
-
-
-
-/* Keep the introduction stationary while each correspondence pane scrolls. */
-@media (min-width: 761px) {
-  .collection { height: 100vh; height: 100dvh; min-height: 0; overflow: hidden; align-items: stretch; padding-bottom: 0; }
-  .introduction { min-height: 0; height: 100%; padding-bottom: 24px; }
-  .colophon { margin-top: 1rem; }
-  .correspondence { display: flex; flex-direction: column; min-height: 0; overflow: hidden; }
-  #grid-header { flex: none; }
-  .reading-layout { flex: 1; min-height: 0; overflow: hidden; }
-  .archive, #letter, #drawing-grid { min-height: 0; overflow-y: auto; overscroll-behavior-y: contain; }
-  .archive { padding: 5px 5px 24px; margin: -5px -5px 0; }
-  #drawing-grid { flex: 1; align-content: start; padding: 5px 5px 24px; }
-  .reading-layout.grid-detail { display: flex; flex-direction: column; }
-  .grid-detail #letter { flex: 1; }
+h1, h2, p { margin: 0; font-weight: normal; }
+.collection { display: grid; grid-template-columns: clamp(230px, 20.14vw, 310px) minmax(0, 1fr); height: 100dvh; overflow: hidden; }
+.introduction { background: var(--blue); color: white; padding: 48px 30px; display: flex; flex-direction: column; justify-content: space-between; min-height: 0; overflow-y: auto; }
+.introduction h1 { font-size: 70px; line-height: 1; letter-spacing: -2px; margin-bottom: 62px; }
+.introduction h1 span { display: block; }
+.introduction p { font-size: 18px; line-height: 1.5; color: #cad9ff; }
+.introduction .introduction-lead { font-size: 24px; line-height: 1.25; color: white; margin-bottom: 42px; }
+.introduction .introduction-note { color: white; border-top: 1px solid #6985c5; margin-top: 78px; padding-top: 24px; line-height: 1.3; }
+.introduction .colophon { font-size: 15px; line-height: 1.35; padding-top: 48px; }
+.correspondence { min-width: 0; min-height: 0; padding: 32px 32px 35px 19px; display: flex; flex-direction: column; overflow: hidden; }
+.reading-layout { display: grid; grid-template-columns: minmax(260px, 353px) minmax(0, 1fr); gap: 34px; flex: 1; min-height: 0; }
+.archive { min-width: 0; min-height: 0; display: flex; flex-direction: column; }
+.archive h2, #grid-heading { color: var(--heading); font-size: 27px; line-height: 1.25; margin: 10px 16px 12px; }
+#count, #grid-count { display: block; font: 12px/1.5 var(--sans); color: var(--muted); margin-top: 10px; }
+.view-switch { display: flex; flex-wrap: wrap; gap: 2px 18px; margin: 0 16px 24px; }
+.view-switch button { font: 13px/1.4 var(--sans); color: var(--heading); border: 0; background: transparent; padding: 8px 0; min-height: 32px; cursor: pointer; }
+.view-switch button[aria-pressed='true'], .view-switch button:hover { text-decoration: underline; text-underline-offset: .25em; }
+#index { list-style: none; padding: 0 5px 12px; margin: 0 -5px; overflow-y: auto; min-height: 0; overscroll-behavior: contain; }
+#index li { margin: 0 0 4px; }
+#index a { display: block; padding: 16px; min-height: 108px; text-decoration: none; border: 1px solid transparent; color: #252822; font-size: 18px; line-height: 1.25; overflow-wrap: anywhere; }
+#index a:hover { background: #e9eef6; }
+#index a[aria-current] { background: #e0e8f6; border-color: #a5ad94; }
+.metadata { display: block; color: #626d74; font: 11px/1.4 var(--sans); margin-top: 7px; }
+#letter { position: relative; min-width: 0; min-height: 0; overflow-y: auto; overscroll-behavior: contain; background: white; border: 1px solid #dae1eb; padding: 32px 40px 48px; scroll-margin-top: 20px; }
+#letter:before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: repeating-linear-gradient(90deg, #355aa3 0 18px, white 18px 36px, #c87d70 36px 54px, white 54px 72px); }
+#letter:focus { outline: none; }
+.letter-eyebrow { font: 10px/1.5 var(--sans); letter-spacing: 1px; text-transform: uppercase; color: #5175ad; margin-bottom: 36px; }
+.letter-heading { display: grid; grid-template-columns: minmax(0, 430px) 102px; justify-content: space-between; gap: 24px 26px; margin-bottom: 32px; align-items: start; }
+#letter h2 { color: var(--heading); font-size: 37px; line-height: 1.08; overflow-wrap: anywhere; }
+.dateline { grid-column: 1 / -1; color: var(--muted); font: 11px/1.7 var(--sans); }
+.dateline span { display: block; }
+.dateline span:first-child { text-transform: uppercase; }
+.letter-body p { font-size: 20px; line-height: 1.55; margin-bottom: 24px; overflow-wrap: anywhere; }
+.signature { color: var(--heading); font-size: 21px; line-height: 1.5; font-style: italic; margin-top: 28px; }
+.back-to-grid { display: inline-block; color: var(--heading); font: 13px/1.5 var(--sans); padding: 12px 0; margin-top: 28px; }
+#letter > p:not([class]) { font-size: 20px; line-height: 1.5; margin-bottom: 16px; }
+.reading-layout.grid-detail { display: flex; }
+.grid-detail #letter { width: min(100%, 900px); margin-inline: auto; }
+#grid-header { flex: none; }
+#drawing-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 32px 24px; align-content: start; min-height: 0; overflow-y: auto; padding: 12px 16px 28px; overscroll-behavior: contain; }
+.drawing-tile { display: flex; align-items: center; justify-content: center; min-height: 180px; text-decoration: none; }
+.introduction-hidden { grid-template-columns: minmax(0, 1fr); }
+.introduction-hidden .correspondence { padding-left: 32px; }
+.introduction-hidden .reading-layout:not(.grid-detail) { grid-template-columns: minmax(280px, 353px) minmax(0, 1fr); }
+.introduction-hidden #letter { width: min(100%, 980px); }
+.validation-notice { font: 12px/1.5 var(--sans); color: var(--muted); }
+.skip-link { position: fixed; top: -100px; left: 16px; padding: 12px; background: white; color: var(--heading); z-index: 5; }
+.skip-link:not(:focus) { clip-path: inset(50%); width: 1px; height: 1px; overflow: hidden; padding: 0; white-space: nowrap; }
+.skip-link:focus { top: 12px; }
+@media (min-width: 761px) and (max-width: 1200px) {
+  .collection { grid-template-columns: 210px minmax(0, 1fr); }
+  .introduction { padding: 32px 24px; }
+  .introduction h1 { font-size: 60px; margin-bottom: 42px; }
+  .introduction .introduction-lead { font-size: 21px; }
+  .introduction p { font-size: 16px; }
+  .introduction .introduction-note { margin-top: 36px; }
+  .correspondence { padding: 24px 20px 24px 12px; }
+  .reading-layout { grid-template-columns: minmax(210px, 28%) minmax(0, 1fr); gap: 16px; }
+  .archive h2, #grid-heading { font-size: 23px; }
+  #letter { padding: 28px 24px; }
+  #letter h2 { font-size: 29px; }
+  .letter-heading { grid-template-columns: minmax(0, 1fr) 76px; gap: 22px 16px; }
+  .letter-body p { font-size: 18px; }
+}
+@media (max-width: 760px) {
+  .collection { display: block; height: auto; min-height: 100dvh; overflow: visible; }
+  .introduction { padding: 24px; overflow: visible; }
+  .introduction > div { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .introduction h1 { font-size: 42px; margin: 0; letter-spacing: -1px; }
+  .introduction h1 span { display: inline; }
+  .introduction .introduction-lead { font-size: 18px; margin: 0; }
+  .introduction p:not(.introduction-lead) { grid-column: 1 / -1; font-size: 15px; max-width: 38em; }
+  .introduction .introduction-note, .introduction .colophon { display: none; }
+  .correspondence, .introduction-hidden .correspondence { padding: 24px 16px; overflow: visible; }
+  .reading-layout, .reading-layout.grid-detail { display: block; }
+  .archive h2, #grid-heading { margin-top: 0; }
+  .view-switch { margin-bottom: 16px; }
+  .view-switch button { min-height: 44px; font-size: 14px; }
+  #index { overflow: visible; }
+  #index a { min-height: 96px; }
+  #letter { overflow: visible; min-height: 65vh; padding: 28px 24px 36px; }
+  .letter-eyebrow { font-size: 9px; margin-bottom: 28px; }
+  .letter-heading { grid-template-columns: minmax(0, 1fr) 76px; gap: 22px 16px; margin-bottom: 26px; }
+  #letter h2 { font-size: 28px; }
+  .letter-body p { font-size: 18px; line-height: 1.6; }
+  .signature { font-size: 19px; }
+  .back-to-grid { min-height: 44px; font-size: 14px; }
+  #drawing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 12px; overflow: visible; padding-inline: 8px; }
+  .drawing-tile { min-height: 160px; }
+}
+@media (max-width: 380px) {
+  .introduction > div { grid-template-columns: 1fr; gap: 16px; }
+  .introduction .introduction-lead br { display: none; }
+  #letter { padding-inline: 18px; }
+  #letter h2 { font-size: 25px; }
 }
 
 /* Shared vintage paper and ink, identical in the archive and letter. */
@@ -153,15 +180,8 @@ li a:hover > span:first-child, li a[aria-current] > span:first-child { text-deco
 }
 
 .stamp-postmark { position: absolute; width: 88px; height: 66px; left: calc(12px + (100% - 112px) * var(--postmark-x, .5)); top: calc(12px + (100% - 90px) * var(--postmark-y, .5)); color: var(--stamp-ink); opacity: .2; transform: rotate(var(--postmark-angle, 0deg)); pointer-events: none; }
-#letter > .postcard-stamp { margin-top: 12px; }
 
-/* Match the reading view’s 12px top inset and flush left content edge. */
-#drawing-grid { column-gap: 1rem; padding: 12px 0; }
-.drawing-tile { padding: 0; }
-@media (max-width: 400px) { .postcard-stamp { width: 128px; } }
 
-.postcard-stamp.is-tilting { transition: transform 80ms ease-out, filter 220ms ease; }
-@media (prefers-reduced-motion: reduce) { .postcard-stamp.is-tilting { transition: none; } }
 
 /* Carry the selected stamp between the gallery and its correspondence. */
 ::view-transition-group(selected-stamp) { animation-duration: 420ms; animation-timing-function: cubic-bezier(.22, 1, .36, 1); }
@@ -174,69 +194,20 @@ li a:hover > span:first-child, li a[aria-current] > span:first-child { text-deco
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
 }
-/* Let rotated paper extend into the gutter without shifting the content edge. */
-.correspondence, .reading-layout {
-  margin-inline: -12px;
-  padding-inline: 12px;
-}
-#letter, #drawing-grid {
-  margin-inline: -12px;
-  padding-inline: 12px;
-}
-.grid-detail #letter { max-width: calc(38em + 24px); }
 
 ::view-transition-group(list-correspondence) { animation: none; }
 ::view-transition-old(list-correspondence) { animation: correspondence-depart 100ms ease-in both; mix-blend-mode: normal; }
 ::view-transition-new(list-correspondence) { animation: correspondence-arrive 180ms ease-out 60ms both; mix-blend-mode: normal; }
 
-.view-switch { flex-wrap: wrap; align-items: baseline; column-gap: .8rem; row-gap: .15rem; }
-.collection.introduction-hidden { grid-template-columns: minmax(0, 1fr); }
-.introduction-hidden .correspondence { grid-column: 1 / -1; }
 
-
-#toggle-introduction { font: inherit; font-size: .8rem; padding: 4px 0; color: #777; }
-#toggle-introduction:hover { color: #191919; text-decoration: underline; text-underline-offset: .2em; }
-
-/* Narrow screens only: keep the original three columns above 760px. */
-@media (max-width: 760px) {
-  .collection { display: block; height: auto; min-height: 100svh; overflow: visible; padding: 24px; }
-  .introduction { min-height: 0; height: auto; margin-bottom: 2rem; }
-  .introduction > div { display: grid; grid-template-columns: 1fr 1.4fr 1fr; gap: 1.5rem; }
-  .introduction h1, .introduction p { margin-bottom: 0; }
-  .colophon { display: none; }
-  .correspondence { display: block; overflow: visible; }
-  .reading-layout { display: grid; grid-template-columns: minmax(180px, 220px) minmax(0, 1fr); gap: 28px; overflow: visible; }
-  .archive { min-width: 0; margin: 0; padding: 0; overflow: visible; }
-  #index { max-height: min(65svh, 36rem); overflow-y: auto; overscroll-behavior-y: contain; padding: 5px; margin: -5px; }
-  #letter { overflow: visible; }
-  #letter p { line-height: 1.5; overflow-wrap: anywhere; }
-  .reading-layout.grid-detail { display: block; }
-  .view-switch button, #toggle-introduction { min-height: 44px; font-size: 16px; }
-  .view-switch { column-gap: 1rem; margin-bottom: 1rem; }
-  .back-to-grid { min-height: 44px; padding-block: 12px; font-size: 16px; }
-  #drawing-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); row-gap: 1.5rem; }
-}
-/* Phone: compact archive followed by the full-width postcard. */
-@media (max-width: 640px) {
-  .collection { padding: 20px; }
-  .introduction > div { display: block; }
-  .introduction h1, .introduction p { margin-bottom: 1rem; }
-  .introduction { margin-bottom: 1.5rem; }
-  .introduction p:last-child { margin-bottom: 0; }
-  .reading-layout { display: block; }
-  .archive { margin-bottom: 1.8rem; }
-  #index { max-height: 13rem; padding-block: 6px; }
-  #index li:last-child { margin-bottom: 0; }
-  #index a { display: block; min-height: 44px; overflow-wrap: anywhere; }
-  #letter { scroll-margin-top: 20px; }
-}
-@media (max-width: 400px) {
-  .collection { padding: 16px; }
-  #drawing-grid { grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); }
+/* The reading stamp is a smaller, live version of its gallery counterpart. */
+.letter-heading > .postcard-stamp { width: 102px; height: 111px; margin: 0; }
+.letter-heading .stamp-artwork { padding: 5px; }
+.letter-heading .stamp-postmark { width: 58px; height: 44px; left: calc(8px + 25px * var(--postmark-x, .5)); top: calc(8px + 48px * var(--postmark-y, .5)); }
+@media (max-width: 1200px) {
+  .letter-heading > .postcard-stamp { width: 76px; height: 83px; }
+  .letter-heading .stamp-postmark { width: 45px; height: 34px; left: 12px; top: 30px; }
 }
 
-/* On compact screens the archive is a destination, not a panel above a letter. */
-@media (max-width: 760px) {
-  .reading-layout { display: block; }
-  #index { max-height: none; overflow: visible; }
-}
+.postcard-stamp.is-tilting { transition: transform 80ms ease-out, filter 220ms ease; }
+@media (prefers-reduced-motion: reduce) { .postcard-stamp.is-tilting { transition: none; } }
