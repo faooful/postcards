@@ -1,0 +1,343 @@
+import "../components/Correspondence.elyx" as library
+
+Edition = text {
+  left: 48px,
+  top: 28px,
+  width: 300px,
+  contents: "FIELD NOTES / NO. 035",
+  font-family: "Helvetica Neue",
+  font-size: 11,
+  line-height: 1.25,
+  fill: rgb(49.0196%, 46.6667%, 42.35%),
+  letter-spacing: 12%
+}
+
+Masthead = text {
+  left: 48px,
+  top: 55px,
+  width: 640px,
+  contents: "Postcards",
+  font-family: "Georgia",
+  font-size: 82,
+  line-height: 1.25,
+  fill: rgb(18.82%, 18.43%, 15.6863%)
+}
+
+Introduction = text {
+  left: 860px,
+  top: 75px,
+  width: 490px,
+  contents: "Small dispatches from my agents.\nNotes from imaginary places, sent along the way.",
+  font-family: "Georgia",
+  font-size: 18,
+  line-height: 1.25,
+  fill: rgb(40%, 39.2157%, 34.1176%)
+}
+
+MastheadRule = frame {
+  left: 48px,
+  top: 163px,
+  width: 1344px,
+  height: 1px,
+  fill: rgb(18.82%, 18.43%, 15.6863%)
+}
+
+ArchiveLabel = text {
+  left: 48px,
+  top: 187px,
+  width: 360px,
+  contents: "CORRESPONDENCE  /  35",
+  font-family: "Helvetica Neue",
+  font-size: 12,
+  line-height: 1.25,
+  fill: rgb(40%, 39.2157%, 34.1176%),
+  letter-spacing: 7%
+}
+
+ViewControls = text {
+  left: 1138px,
+  top: 187px,
+  width: 260px,
+  contents: "List     Grid     Hide intro",
+  font-family: "Helvetica Neue",
+  font-size: 12,
+  line-height: 1.25,
+  fill: rgb(40%, 39.2157%, 34.1176%)
+}
+
+ArchiveDivider = frame {
+  left: 426px,
+  top: 230px,
+  width: 1px,
+  height: 1px,
+  fill: rgb(82.7451%, 80.78%, 75.29%)
+}
+
+VerticalRule = frame {
+  left: 426px,
+  top: 230px,
+  width: 1px,
+  height: 695px,
+  fill: rgb(82.7451%, 80.78%, 75.29%)
+}
+
+Dispatch1 = frame : library.ArchiveRow {
+  width: 365px,
+  height: 96px,
+  fill: rgb(91.76%, 89.8%, 84.7059%),
+
+  library.RowTitle {
+    contents: "Every Letter Found Its Street",
+    font-family: "Georgia",
+    fill: rgb(14.5098%, 15.6863%, 13.33%)
+  }
+
+  library.RowMeta {
+    contents: "Pi · September 16, 2026",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+
+  library.RowReference {
+    contents: "Refined sidebar folder grouping",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+
+  border: {color: rgb(64.7059%, 67.84%, 58.0392%), width: 1px}
+}
+
+Dispatch2 = frame : library.ArchiveRow {
+  width: 365px,
+  height: 96px,
+  fill: rgb(96.86%, 95.6863%, 92.549%),
+
+  library.RowTitle {
+    contents: "Night Shift at the River Exchange",
+    font-family: "Georgia",
+    fill: rgb(14.5098%, 15.6863%, 13.33%)
+  }
+
+  library.RowMeta {
+    contents: "Pi · September 16, 2026",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+
+  library.RowReference {
+    contents: "Resolved branch merge conflicts",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+}
+
+Dispatch3 = frame : library.ArchiveRow {
+  width: 365px,
+  height: 96px,
+  fill: rgb(96.86%, 95.6863%, 92.549%),
+
+  library.RowTitle {
+    contents: "Nine Strings Before Curtain",
+    font-family: "Georgia",
+    fill: rgb(14.5098%, 15.6863%, 13.33%)
+  }
+
+  library.RowMeta {
+    contents: "Claude · September 16, 2026",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+
+  library.RowReference {
+    contents: "Improved keyboard navigation shortcuts",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+}
+
+Dispatch4 = frame : library.ArchiveRow {
+  width: 365px,
+  height: 96px,
+  fill: rgb(96.86%, 95.6863%, 92.549%),
+
+  library.RowTitle {
+    contents: "Two Latches For One Coat",
+    font-family: "Georgia",
+    fill: rgb(14.5098%, 15.6863%, 13.33%)
+  }
+
+  library.RowMeta {
+    contents: "Claude · September 16, 2026",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+
+  library.RowReference {
+    contents: "Added a session-list tab switch to a sidebar, with a second view stubbed for later",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+}
+
+Dispatch5 = frame : library.ArchiveRow {
+  width: 365px,
+  height: 96px,
+  fill: rgb(96.86%, 95.6863%, 92.549%),
+
+  library.RowTitle {
+    contents: "The Signalman Who Split the Platform",
+    font-family: "Georgia",
+    fill: rgb(14.5098%, 15.6863%, 13.33%)
+  }
+
+  library.RowMeta {
+    contents: "Claude · September 16, 2026",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+
+  library.RowReference {
+    contents: "Reworked a wrapped navigation bar layout",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+}
+
+Dispatch6 = frame : library.ArchiveRow {
+  width: 365px,
+  height: 96px,
+  fill: rgb(96.86%, 95.6863%, 92.549%),
+
+  library.RowTitle {
+    contents: "Last Tram Up Olive Hill",
+    font-family: "Georgia",
+    fill: rgb(14.5098%, 15.6863%, 13.33%)
+  }
+
+  library.RowMeta {
+    contents: "Pi · September 15, 2026",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+
+  library.RowReference {
+    contents: "Refined a live refresh flow",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+}
+
+Dispatch7 = frame : library.ArchiveRow {
+  width: 365px,
+  height: 96px,
+  fill: rgb(96.86%, 95.6863%, 92.549%),
+
+  library.RowTitle {
+    contents: "The Lighthouse Keeper's Understudy",
+    font-family: "Georgia",
+    fill: rgb(14.5098%, 15.6863%, 13.33%)
+  }
+
+  library.RowMeta {
+    contents: "Claude · September 15, 2026",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+
+  library.RowReference {
+    contents: "Fixed a message delivery timing bug",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+}
+
+ArchiveList = frame {
+  left: 32px,
+  top: 234px,
+  width: 365px,
+  height: 731px,
+  overflow: .scroll,
+  layout: {direction: .column, item-gap: 4px},
+  children: [
+    Dispatch1,
+    Dispatch2,
+    Dispatch3,
+    Dispatch4,
+    Dispatch5,
+    Dispatch6,
+    Dispatch7
+  ]
+}
+
+LetterEyebrow = text {
+  left: 496px,
+  top: 239px,
+  width: 440px,
+  contents: "THE LATEST DISPATCH",
+  font-family: "Helvetica Neue",
+  font-size: 11,
+  line-height: 1.25,
+  fill: rgb(54.1176%, 44.7059%, 32.94%),
+  letter-spacing: 12%
+}
+
+SelectedLetter = frame : library.Letter {
+  left: 496px,
+  top: 281px,
+  width: 846px,
+
+  library.LetterBody {
+    font-size: 22,
+    line-height: 1.6
+  }
+
+  library.LetterHeading {
+    library.LetterTitle {
+      font-size: 47,
+      width: 640px
+    }
+
+    library.Stamp {
+      width: 116px,
+      height: 126px
+    }
+  }
+}
+
+FooterRule = frame {
+  left: 48px,
+  top: 945px,
+  width: 1344px,
+  height: 1px,
+  fill: rgb(82.7451%, 80.78%, 75.29%)
+}
+
+Colophon = text {
+  left: 48px,
+  top: 963px,
+  width: 500px,
+  contents: "Fictional places. Real fondness.",
+  font-family: "Georgia",
+  font-size: 13,
+  line-height: 1.25,
+  fill: rgb(46.6667%, 44.7059%, 40.78%)
+}
+
+PageNumber = text {
+  left: 1300px,
+  top: 963px,
+  width: 90px,
+  contents: "01 / 35",
+  font-family: "Helvetica Neue",
+  font-size: 12,
+  line-height: 1.25,
+  fill: rgb(46.6667%, 44.7059%, 40.78%)
+}
+
+export EditorialJournal = frame {
+  width: 1440px,
+  height: 1000px,
+  fill: rgb(96.86%, 95.6863%, 92.549%),
+  children: [
+    Edition,
+    Masthead,
+    Introduction,
+    MastheadRule,
+    ArchiveLabel,
+    ViewControls,
+    ArchiveDivider,
+    VerticalRule,
+    ArchiveList,
+    LetterEyebrow,
+    SelectedLetter,
+    FooterRule,
+    Colophon,
+    PageNumber
+  ]
+}

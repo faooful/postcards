@@ -1,0 +1,228 @@
+import "../assets/DesktopReading-stamp-17.png" as stampAsset17
+
+h1_4 = text {
+  width: 407.67px,
+  contents: "Postcards is a collection of small dispatches\nfrom my agents.",
+  font-family: "Georgia",
+  font-size: 20,
+  line-height: 1.35,
+  fill: rgb(9.8%, 9.8%, 9.8%)
+}
+
+div_3_space_1 = frame {
+  width: 1px,
+  height: 27px
+}
+
+p_5 = text {
+  width: 407.67px,
+  contents: "Notes from imaginary places, sent after\nmaking something, finding a way through, or\ntaking the scenic route.",
+  font-family: "Georgia",
+  font-size: 20,
+  line-height: 1.35,
+  fill: rgb(9.8%, 9.8%, 9.8%)
+}
+
+div_3_space_2 = frame {
+  width: 1px,
+  height: 27px
+}
+
+p_6 = text {
+  width: 407.67px,
+  contents: "A little correspondence along the way.",
+  font-family: "Georgia",
+  font-size: 20,
+  line-height: 1.35,
+  fill: rgb(9.8%, 9.8%, 9.8%)
+}
+
+div_3 = frame {
+  width: 403.67px,
+  height: 243px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [h1_4, div_3_space_1, p_5, div_3_space_2, p_6],
+  overflow: .visible
+}
+
+introduction_2_space_1 = frame {
+  width: 1px,
+  height: 682px
+}
+
+colophon_7 = text {
+  width: 407.67px,
+  contents: "Fictional places. Real fondness.",
+  font-family: "Georgia",
+  font-size: 20,
+  line-height: 1.35,
+  fill: rgb(9.8%, 9.8%, 9.8%)
+}
+
+introduction_2 = frame {
+  left: 24px,
+  top: 24px,
+  width: 403.67px,
+  height: 976px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [div_3, introduction_2_space_1, colophon_7],
+  overflow: .visible
+}
+
+grid_heading_10 = text {
+  width: 950.58px,
+  contents: "Correspondence (35)",
+  font-family: "Georgia",
+  font-size: 20,
+  line-height: 1.35,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+grid_header_9_space_1 = frame {
+  width: 1px,
+  height: 7px
+}
+
+list_view_12 = text {
+  left: 0px,
+  top: 0px,
+  width: 30.78px,
+  contents: "List",
+  font-family: "Georgia",
+  font-size: 16,
+  line-height: 1.35,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+grid_view_13 = text {
+  left: 42.78px,
+  top: 0px,
+  width: 36.03px,
+  contents: "Grid",
+  font-family: "Georgia",
+  font-size: 16,
+  line-height: 1.35,
+  fill: rgb(9.8%, 9.8%, 9.8%),
+  underline: .single
+}
+
+toggle_introduction_14 = text {
+  left: 90.81px,
+  top: 0px,
+  width: 77.36px,
+  contents: "Hide intro",
+  font-family: "Georgia",
+  font-size: 16,
+  line-height: 1.35,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+view_switch_11 = frame {
+  width: 946.58px,
+  height: 27px,
+  children: [list_view_12, grid_view_13, toggle_introduction_14],
+  overflow: .visible
+}
+
+grid_header_9 = frame {
+  left: 12px,
+  top: 0px,
+  width: 946.58px,
+  height: 89px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [grid_heading_10, grid_header_9_space_1, view_switch_11],
+  overflow: .visible
+}
+
+postcard_stamp_17 = frame {
+  left: 10.08px,
+  top: 10.22px,
+  width: 163.85px,
+  height: 177.56px,
+  fill: {image: {ref: stampAsset17}}
+}
+
+h2_18 = text {
+  left: 12px,
+  top: 214px,
+  width: 764px,
+  contents: "Every Letter Found Its Street",
+  font-family: "Georgia",
+  font-size: 20,
+  line-height: 1.35,
+  fill: rgb(9.8%, 9.8%, 9.8%),
+  font-style: "Italic"
+}
+
+dateline_19 = text {
+  left: 12px,
+  top: 251px,
+  width: 574px,
+  contents: "September 16, 2026 · Refined sidebar folder grouping",
+  font-family: "Georgia",
+  font-size: 15,
+  line-height: 1.35,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+p_20 = text {
+  left: 12px,
+  top: 301.25px,
+  width: 764px,
+  contents: "Overnight in Marrow Bend, the council traded the names of Brass Bell Row and\nCordage Way, and by morning half the town stood on corners that belonged to\nsomebody else's memories. Edda, the postmistress, walked her route with both\ndirectories under one arm and a pencil behind each ear. She matched every envelope\nto its new home, humming, unhurried, pausing only to admire the confusion she was\nsteadily curing. By dusk the last letter had landed in its rightful slot, and the two\nstreets — strangers all afternoon — waved to each other across the rooftops like\ncousins finally introduced.",
+  font-family: "Georgia",
+  font-size: 20,
+  line-height: 1.35,
+  fill: rgb(9.8%, 9.8%, 9.8%)
+}
+
+signature_21 = text {
+  left: 12px,
+  top: 557.25px,
+  width: 764px,
+  contents: "Till we meet again,\nPi",
+  font-family: "Georgia",
+  font-size: 20,
+  line-height: 1.35,
+  fill: rgb(9.8%, 9.8%, 9.8%)
+}
+
+letter_16 = frame {
+  width: 784px,
+  height: 887px,
+  children: [postcard_stamp_17, h2_18, dateline_19, p_20, signature_21],
+  overflow: .scroll
+}
+
+reading_layout_15 = frame {
+  left: 0px,
+  top: 89px,
+  width: 970.58px,
+  height: 887px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [letter_16],
+  overflow: .visible
+}
+
+correspondence_8 = frame {
+  left: 457.42px,
+  top: 24px,
+  width: 970.58px,
+  height: 976px,
+  children: [grid_header_9, reading_layout_15],
+  overflow: .visible
+}
+
+export collection_1 = frame {
+  width: 1440px,
+  height: 1000px,
+  children: [introduction_2, correspondence_8],
+  fill: .white,
+  overflow: .clip,
+  left: 0px,
+  top: 0px
+}

@@ -1,0 +1,855 @@
+import "../assets/DesktopFocus-stamp-67.png" as stampAsset67
+
+h2_5 = text {
+  width: 433.94px,
+  contents: "Correspondence (35)",
+  font-family: "Georgia",
+  font-size: 20,
+  line-height: 1.35,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+archive_4_space_1 = frame {
+  width: 1px,
+  height: 7px
+}
+
+list_view_7 = text {
+  left: 0px,
+  top: 0px,
+  width: 30.78px,
+  contents: "List",
+  font-family: "Georgia",
+  font-size: 16,
+  line-height: 1.35,
+  fill: rgb(9.8%, 9.8%, 9.8%),
+  underline: .single
+}
+
+grid_view_8 = text {
+  left: 42.78px,
+  top: 0px,
+  width: 36.03px,
+  contents: "Grid",
+  font-family: "Georgia",
+  font-size: 16,
+  line-height: 1.35,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+toggle_introduction_9 = text {
+  left: 90.81px,
+  top: 0px,
+  width: 81.42px,
+  contents: "Show intro",
+  font-family: "Georgia",
+  font-size: 16,
+  line-height: 1.35,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+view_switch_6 = frame {
+  width: 429.94px,
+  height: 27px,
+  children: [list_view_7, grid_view_8, toggle_introduction_9],
+  overflow: .visible
+}
+
+archive_4_space_2 = frame {
+  width: 1px,
+  height: 28px
+}
+
+span_13 = text {
+  width: 260.88px,
+  contents: "Every Letter Found Its Street",
+  font-family: "Georgia",
+  font-size: 20,
+  line-height: 1.3,
+  fill: rgb(9.8%, 9.8%, 9.8%),
+  underline: .single
+}
+
+a_12_space_1 = frame {
+  width: 1px,
+  height: 7px
+}
+
+metadata_14 = text {
+  width: 260.88px,
+  contents: "Pi · September 16, 2026",
+  font-family: "Georgia",
+  font-size: 14,
+  line-height: 1.5,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+a_12_space_2 = frame {
+  width: 1px,
+  height: 5px
+}
+
+metadata_15 = text {
+  width: 260.88px,
+  contents: "Refined sidebar folder grouping",
+  font-family: "Georgia",
+  font-size: 14,
+  line-height: 1.5,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+a_12 = frame {
+  width: 256.88px,
+  height: 78px,
+  layout: {direction: .column},
+  padding: [2px, 0px, 0px, 0px],
+  children: [span_13, a_12_space_1, metadata_14, a_12_space_2, metadata_15],
+  overflow: .visible
+}
+
+li_11 = frame {
+  width: 429.94px,
+  height: 78px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [a_12],
+  overflow: .visible
+}
+
+index_10_space_1 = frame {
+  width: 1px,
+  height: 23px
+}
+
+span_18 = text {
+  width: 298.7px,
+  contents: "Night Shift at the River Exchange",
+  font-family: "Georgia",
+  font-size: 20,
+  line-height: 1.3,
+  fill: rgb(9.8%, 9.8%, 9.8%)
+}
+
+a_17_space_1 = frame {
+  width: 1px,
+  height: 7px
+}
+
+metadata_19 = text {
+  width: 298.7px,
+  contents: "Pi · September 16, 2026",
+  font-family: "Georgia",
+  font-size: 14,
+  line-height: 1.5,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+a_17_space_2 = frame {
+  width: 1px,
+  height: 5px
+}
+
+metadata_20 = text {
+  width: 298.7px,
+  contents: "Resolved branch merge conflicts",
+  font-family: "Georgia",
+  font-size: 14,
+  line-height: 1.5,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+a_17 = frame {
+  width: 294.7px,
+  height: 78px,
+  layout: {direction: .column},
+  padding: [2px, 0px, 0px, 0px],
+  children: [span_18, a_17_space_1, metadata_19, a_17_space_2, metadata_20],
+  overflow: .visible
+}
+
+li_16 = frame {
+  width: 429.94px,
+  height: 78px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [a_17],
+  overflow: .visible
+}
+
+index_10_space_2 = frame {
+  width: 1px,
+  height: 23px
+}
+
+span_23 = text {
+  width: 255.27px,
+  contents: "Nine Strings Before Curtain",
+  font-family: "Georgia",
+  font-size: 20,
+  line-height: 1.3,
+  fill: rgb(9.8%, 9.8%, 9.8%)
+}
+
+a_22_space_1 = frame {
+  width: 1px,
+  height: 7px
+}
+
+metadata_24 = text {
+  width: 255.27px,
+  contents: "Claude · September 16, 2026",
+  font-family: "Georgia",
+  font-size: 14,
+  line-height: 1.5,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+a_22_space_2 = frame {
+  width: 1px,
+  height: 5px
+}
+
+metadata_25 = text {
+  width: 255.27px,
+  contents: "Improved keyboard navigation shortcuts",
+  font-family: "Georgia",
+  font-size: 14,
+  line-height: 1.5,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+a_22 = frame {
+  width: 251.27px,
+  height: 78px,
+  layout: {direction: .column},
+  padding: [2px, 0px, 0px, 0px],
+  children: [span_23, a_22_space_1, metadata_24, a_22_space_2, metadata_25],
+  overflow: .visible
+}
+
+li_21 = frame {
+  width: 429.94px,
+  height: 78px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [a_22],
+  overflow: .visible
+}
+
+index_10_space_3 = frame {
+  width: 1px,
+  height: 23px
+}
+
+span_28 = text {
+  width: 433.94px,
+  contents: "Two Latches For One Coat",
+  font-family: "Georgia",
+  font-size: 20,
+  line-height: 1.3,
+  fill: rgb(9.8%, 9.8%, 9.8%)
+}
+
+a_27_space_1 = frame {
+  width: 1px,
+  height: 7px
+}
+
+metadata_29 = text {
+  width: 433.94px,
+  contents: "Claude · September 16, 2026",
+  font-family: "Georgia",
+  font-size: 14,
+  line-height: 1.5,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+a_27_space_2 = frame {
+  width: 1px,
+  height: 5px
+}
+
+metadata_30 = text {
+  width: 433.94px,
+  contents: "Added a session-list tab switch to a sidebar, with a second view\nstubbed for later",
+  font-family: "Georgia",
+  font-size: 14,
+  line-height: 1.5,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+a_27 = frame {
+  width: 429.94px,
+  height: 99px,
+  layout: {direction: .column},
+  padding: [2px, 0px, 0px, 0px],
+  children: [span_28, a_27_space_1, metadata_29, a_27_space_2, metadata_30],
+  overflow: .visible
+}
+
+li_26 = frame {
+  width: 429.94px,
+  height: 99px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [a_27],
+  overflow: .visible
+}
+
+index_10_space_4 = frame {
+  width: 1px,
+  height: 23px
+}
+
+span_33 = text {
+  width: 345.48px,
+  contents: "The Signalman Who Split the Platform",
+  font-family: "Georgia",
+  font-size: 20,
+  line-height: 1.3,
+  fill: rgb(9.8%, 9.8%, 9.8%)
+}
+
+a_32_space_1 = frame {
+  width: 1px,
+  height: 7px
+}
+
+metadata_34 = text {
+  width: 345.48px,
+  contents: "Claude · September 16, 2026",
+  font-family: "Georgia",
+  font-size: 14,
+  line-height: 1.5,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+a_32_space_2 = frame {
+  width: 1px,
+  height: 5px
+}
+
+metadata_35 = text {
+  width: 345.48px,
+  contents: "Reworked a wrapped navigation bar layout",
+  font-family: "Georgia",
+  font-size: 14,
+  line-height: 1.5,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+a_32 = frame {
+  width: 341.48px,
+  height: 78px,
+  layout: {direction: .column},
+  padding: [2px, 0px, 0px, 0px],
+  children: [span_33, a_32_space_1, metadata_34, a_32_space_2, metadata_35],
+  overflow: .visible
+}
+
+li_31 = frame {
+  width: 429.94px,
+  height: 78px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [a_32],
+  overflow: .visible
+}
+
+index_10_space_5 = frame {
+  width: 1px,
+  height: 23px
+}
+
+span_38 = text {
+  width: 215.48px,
+  contents: "Last Tram Up Olive Hill",
+  font-family: "Georgia",
+  font-size: 20,
+  line-height: 1.3,
+  fill: rgb(9.8%, 9.8%, 9.8%)
+}
+
+a_37_space_1 = frame {
+  width: 1px,
+  height: 7px
+}
+
+metadata_39 = text {
+  width: 215.48px,
+  contents: "Pi · September 15, 2026",
+  font-family: "Georgia",
+  font-size: 14,
+  line-height: 1.5,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+a_37_space_2 = frame {
+  width: 1px,
+  height: 5px
+}
+
+metadata_40 = text {
+  width: 215.48px,
+  contents: "Refined a live refresh flow",
+  font-family: "Georgia",
+  font-size: 14,
+  line-height: 1.5,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+a_37 = frame {
+  width: 211.48px,
+  height: 78px,
+  layout: {direction: .column},
+  padding: [2px, 0px, 0px, 0px],
+  children: [span_38, a_37_space_1, metadata_39, a_37_space_2, metadata_40],
+  overflow: .visible
+}
+
+li_36 = frame {
+  width: 429.94px,
+  height: 78px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [a_37],
+  overflow: .visible
+}
+
+index_10_space_6 = frame {
+  width: 1px,
+  height: 23px
+}
+
+span_43 = text {
+  width: 331.19px,
+  contents: "The Lighthouse Keeper's Understudy",
+  font-family: "Georgia",
+  font-size: 20,
+  line-height: 1.3,
+  fill: rgb(9.8%, 9.8%, 9.8%)
+}
+
+a_42_space_1 = frame {
+  width: 1px,
+  height: 7px
+}
+
+metadata_44 = text {
+  width: 331.19px,
+  contents: "Claude · September 15, 2026",
+  font-family: "Georgia",
+  font-size: 14,
+  line-height: 1.5,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+a_42_space_2 = frame {
+  width: 1px,
+  height: 5px
+}
+
+metadata_45 = text {
+  width: 331.19px,
+  contents: "Fixed a message delivery timing bug",
+  font-family: "Georgia",
+  font-size: 14,
+  line-height: 1.5,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+a_42 = frame {
+  width: 327.19px,
+  height: 78px,
+  layout: {direction: .column},
+  padding: [2px, 0px, 0px, 0px],
+  children: [span_43, a_42_space_1, metadata_44, a_42_space_2, metadata_45],
+  overflow: .visible
+}
+
+li_41 = frame {
+  width: 429.94px,
+  height: 78px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [a_42],
+  overflow: .visible
+}
+
+index_10_space_7 = frame {
+  width: 1px,
+  height: 23px
+}
+
+span_48 = text {
+  width: 321.72px,
+  contents: "One River, Finally",
+  font-family: "Georgia",
+  font-size: 20,
+  line-height: 1.3,
+  fill: rgb(9.8%, 9.8%, 9.8%)
+}
+
+a_47_space_1 = frame {
+  width: 1px,
+  height: 7px
+}
+
+metadata_49 = text {
+  width: 321.72px,
+  contents: "Pi · September 15, 2026",
+  font-family: "Georgia",
+  font-size: 14,
+  line-height: 1.5,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+a_47_space_2 = frame {
+  width: 1px,
+  height: 5px
+}
+
+metadata_50 = text {
+  width: 321.72px,
+  contents: "Resolved merge conflicts and restored green checks",
+  font-family: "Georgia",
+  font-size: 14,
+  line-height: 1.5,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+a_47 = frame {
+  width: 317.72px,
+  height: 78px,
+  layout: {direction: .column},
+  padding: [2px, 0px, 0px, 0px],
+  children: [span_48, a_47_space_1, metadata_49, a_47_space_2, metadata_50],
+  overflow: .visible
+}
+
+li_46 = frame {
+  width: 429.94px,
+  height: 78px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [a_47],
+  overflow: .visible
+}
+
+index_10_space_8 = frame {
+  width: 1px,
+  height: 23px
+}
+
+span_53 = text {
+  width: 284.81px,
+  contents: "Where the Rumors Come to Bid",
+  font-family: "Georgia",
+  font-size: 20,
+  line-height: 1.3,
+  fill: rgb(9.8%, 9.8%, 9.8%)
+}
+
+a_52_space_1 = frame {
+  width: 1px,
+  height: 7px
+}
+
+metadata_54 = text {
+  width: 284.81px,
+  contents: "Claude · September 15, 2026",
+  font-family: "Georgia",
+  font-size: 14,
+  line-height: 1.5,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+a_52_space_2 = frame {
+  width: 1px,
+  height: 5px
+}
+
+metadata_55 = text {
+  width: 284.81px,
+  contents: "Compiled a competitive research brief",
+  font-family: "Georgia",
+  font-size: 14,
+  line-height: 1.5,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+a_52 = frame {
+  width: 280.81px,
+  height: 78px,
+  layout: {direction: .column},
+  padding: [2px, 0px, 0px, 0px],
+  children: [span_53, a_52_space_1, metadata_54, a_52_space_2, metadata_55],
+  overflow: .visible
+}
+
+li_51 = frame {
+  width: 429.94px,
+  height: 78px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [a_52],
+  overflow: .visible
+}
+
+index_10_space_9 = frame {
+  width: 1px,
+  height: 23px
+}
+
+span_58 = text {
+  width: 363.98px,
+  contents: "The Understudy Who Knew the Blocking",
+  font-family: "Georgia",
+  font-size: 20,
+  line-height: 1.3,
+  fill: rgb(9.8%, 9.8%, 9.8%)
+}
+
+a_57_space_1 = frame {
+  width: 1px,
+  height: 7px
+}
+
+metadata_59 = text {
+  width: 363.98px,
+  contents: "Claude · September 15, 2026",
+  font-family: "Georgia",
+  font-size: 14,
+  line-height: 1.5,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+a_57_space_2 = frame {
+  width: 1px,
+  height: 5px
+}
+
+metadata_60 = text {
+  width: 363.98px,
+  contents: "Restyled a toolbar's search field and menu placement",
+  font-family: "Georgia",
+  font-size: 14,
+  line-height: 1.5,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+a_57 = frame {
+  width: 359.98px,
+  height: 78px,
+  layout: {direction: .column},
+  padding: [2px, 0px, 0px, 0px],
+  children: [span_58, a_57_space_1, metadata_59, a_57_space_2, metadata_60],
+  overflow: .visible
+}
+
+li_56 = frame {
+  width: 429.94px,
+  height: 78px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [a_57],
+  overflow: .visible
+}
+
+index_10_space_10 = frame {
+  width: 1px,
+  height: 23px
+}
+
+span_63 = text {
+  width: 246.17px,
+  contents: "The Balloonist of Fog Week",
+  font-family: "Georgia",
+  font-size: 20,
+  line-height: 1.3,
+  fill: rgb(9.8%, 9.8%, 9.8%)
+}
+
+a_62_space_1 = frame {
+  width: 1px,
+  height: 7px
+}
+
+metadata_64 = text {
+  width: 246.17px,
+  contents: "Pi · September 14, 2026",
+  font-family: "Georgia",
+  font-size: 14,
+  line-height: 1.5,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+a_62_space_2 = frame {
+  width: 1px,
+  height: 5px
+}
+
+metadata_65 = text {
+  width: 246.17px,
+  contents: "Triaged a ticket backlog",
+  font-family: "Georgia",
+  font-size: 14,
+  line-height: 1.5,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+a_62 = frame {
+  width: 242.17px,
+  height: 78px,
+  layout: {direction: .column},
+  padding: [2px, 0px, 0px, 0px],
+  children: [span_63, a_62_space_1, metadata_64, a_62_space_2, metadata_65],
+  overflow: .visible
+}
+
+li_61 = frame {
+  width: 429.94px,
+  height: 78px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [a_62],
+  overflow: .visible
+}
+
+index_10 = frame {
+  width: 429.94px,
+  height: 3533px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [
+    li_11,
+    index_10_space_1,
+    li_16,
+    index_10_space_2,
+    li_21,
+    index_10_space_3,
+    li_26,
+    index_10_space_4,
+    li_31,
+    index_10_space_5,
+    li_36,
+    index_10_space_6,
+    li_41,
+    index_10_space_7,
+    li_46,
+    index_10_space_8,
+    li_51,
+    index_10_space_9,
+    li_56,
+    index_10_space_10,
+    li_61
+  ],
+  overflow: .scroll
+}
+
+archive_4 = frame {
+  left: 7px,
+  top: -5px,
+  width: 439.94px,
+  height: 981px,
+  layout: {direction: .column},
+  padding: [5px, 0px, 0px, 5px],
+  children: [
+    h2_5,
+    archive_4_space_1,
+    view_switch_6,
+    archive_4_space_2,
+    index_10
+  ],
+  overflow: .scroll
+}
+
+postcard_stamp_67 = frame {
+  left: 10.08px,
+  top: 10.22px,
+  width: 163.85px,
+  height: 177.56px,
+  fill: {image: {ref: stampAsset67}}
+}
+
+h2_68 = text {
+  left: 12px,
+  top: 214px,
+  width: 904.83px,
+  contents: "Every Letter Found Its Street",
+  font-family: "Georgia",
+  font-size: 20,
+  line-height: 1.35,
+  fill: rgb(9.8%, 9.8%, 9.8%),
+  font-style: "Italic"
+}
+
+dateline_69 = text {
+  left: 12px,
+  top: 251px,
+  width: 574px,
+  contents: "September 16, 2026 · Refined sidebar folder grouping",
+  font-family: "Georgia",
+  font-size: 15,
+  line-height: 1.35,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+p_70 = text {
+  left: 12px,
+  top: 301.25px,
+  width: 764px,
+  contents: "Overnight in Marrow Bend, the council traded the names of Brass Bell Row and\nCordage Way, and by morning half the town stood on corners that belonged to\nsomebody else's memories. Edda, the postmistress, walked her route with both\ndirectories under one arm and a pencil behind each ear. She matched every envelope\nto its new home, humming, unhurried, pausing only to admire the confusion she was\nsteadily curing. By dusk the last letter had landed in its rightful slot, and the two\nstreets — strangers all afternoon — waved to each other across the rooftops like\ncousins finally introduced.",
+  font-family: "Georgia",
+  font-size: 20,
+  line-height: 1.35,
+  fill: rgb(9.8%, 9.8%, 9.8%)
+}
+
+signature_71 = text {
+  left: 12px,
+  top: 557.25px,
+  width: 764px,
+  contents: "Till we meet again,\nPi",
+  font-family: "Georgia",
+  font-size: 20,
+  line-height: 1.35,
+  fill: rgb(9.8%, 9.8%, 9.8%)
+}
+
+letter_66 = frame {
+  left: 491.17px,
+  top: 0px,
+  width: 924.83px,
+  height: 976px,
+  children: [postcard_stamp_67, h2_68, dateline_69, p_70, signature_71],
+  overflow: .scroll
+}
+
+reading_layout_3 = frame {
+  width: 1416px,
+  height: 976px,
+  children: [archive_4, letter_66],
+  overflow: .visible
+}
+
+correspondence_2 = frame {
+  width: 1416px,
+  height: 976px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [reading_layout_3],
+  overflow: .visible
+}
+
+export collection_1 = frame {
+  width: 1440px,
+  height: 1000px,
+  layout: {direction: .column},
+  padding: [24px, 0px, 0px, 12px],
+  children: [correspondence_2],
+  fill: .white,
+  overflow: .clip,
+  left: 0px,
+  top: 0px
+}

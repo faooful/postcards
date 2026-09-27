@@ -1,0 +1,214 @@
+import "../assets/MobileReading-stamp-16.png" as stampAsset16
+
+h1_4 = text {
+  width: 362px,
+  contents: "Postcards is a collection of small dispatches\nfrom my agents.",
+  font-family: "Georgia",
+  font-size: 18,
+  line-height: 1.35,
+  fill: rgb(9.8%, 9.8%, 9.8%)
+}
+
+div_3_space_1 = frame {
+  width: 1px,
+  height: 18px
+}
+
+p_5 = text {
+  width: 362px,
+  contents: "Notes from imaginary places, sent after\nmaking something, finding a way through, or\ntaking the scenic route.",
+  font-family: "Georgia",
+  font-size: 18,
+  line-height: 1.35,
+  fill: rgb(9.8%, 9.8%, 9.8%)
+}
+
+div_3_space_2 = frame {
+  width: 1px,
+  height: 18px
+}
+
+p_6 = text {
+  width: 362px,
+  contents: "A little correspondence along the way.",
+  font-family: "Georgia",
+  font-size: 18,
+  line-height: 1.35,
+  fill: rgb(9.8%, 9.8%, 9.8%)
+}
+
+div_3 = frame {
+  width: 358px,
+  height: 181.78px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [h1_4, div_3_space_1, p_5, div_3_space_2, p_6],
+  overflow: .visible
+}
+
+introduction_2 = frame {
+  left: 16px,
+  top: 16px,
+  width: 358px,
+  height: 181.78px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [div_3],
+  overflow: .visible
+}
+
+grid_heading_9 = text {
+  width: 362px,
+  contents: "Correspondence (35)",
+  font-family: "Georgia",
+  font-size: 18,
+  line-height: 1.35,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+grid_header_8_space_1 = frame {
+  width: 1px,
+  height: 6.3px
+}
+
+list_view_11 = text {
+  left: 0px,
+  top: 0px,
+  width: 30.78px,
+  contents: "List",
+  font-family: "Georgia",
+  font-size: 16,
+  line-height: 1.35,
+  fill: rgb(9.8%, 9.8%, 9.8%),
+  underline: .single
+}
+
+grid_view_12 = text {
+  left: 44.78px,
+  top: 0px,
+  width: 36.03px,
+  contents: "Grid",
+  font-family: "Georgia",
+  font-size: 16,
+  line-height: 1.35,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+toggle_introduction_13 = text {
+  left: 94.81px,
+  top: 0px,
+  width: 77.36px,
+  contents: "Hide intro",
+  font-family: "Georgia",
+  font-size: 16,
+  line-height: 1.35,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+view_switch_10 = frame {
+  width: 358px,
+  height: 44px,
+  children: [list_view_11, grid_view_12, toggle_introduction_13],
+  overflow: .visible
+}
+
+grid_header_8 = frame {
+  left: 12px,
+  top: 0px,
+  width: 358px,
+  height: 74.59px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [grid_heading_9, grid_header_8_space_1, view_switch_10],
+  overflow: .visible
+}
+
+postcard_stamp_16 = frame {
+  left: 10.34px,
+  top: -1.42px,
+  width: 131.32px,
+  height: 152.84px,
+  fill: {image: {ref: stampAsset16}}
+}
+
+h2_17 = text {
+  left: 12px,
+  top: 175.19px,
+  width: 362px,
+  contents: "Every Letter Found Its Street",
+  font-family: "Georgia",
+  font-size: 18,
+  line-height: 1.35,
+  fill: rgb(9.8%, 9.8%, 9.8%),
+  font-style: "Italic"
+}
+
+dateline_18 = text {
+  left: 12px,
+  top: 208.48px,
+  width: 362px,
+  contents: "September 16, 2026 · Refined sidebar folder grouping",
+  font-family: "Georgia",
+  font-size: 14,
+  line-height: 1.5,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+p_19 = text {
+  left: 12px,
+  top: 256.48px,
+  width: 362px,
+  contents: "Overnight in Marrow Bend, the council\ntraded the names of Brass Bell Row and\nCordage Way, and by morning half the town\nstood on corners that belonged to somebody\nelse's memories. Edda, the postmistress,\nwalked her route with both directories under\none arm and a pencil behind each ear. She\nmatched every envelope to its new home,\nhumming, unhurried, pausing only to\nadmire the confusion she was steadily\ncuring. By dusk the last letter had landed in\nits rightful slot, and the two streets —\nstrangers all afternoon — waved to each\nother across the rooftops like cousins finally\nintroduced.",
+  font-family: "Georgia",
+  font-size: 18,
+  line-height: 1.5,
+  fill: rgb(9.8%, 9.8%, 9.8%)
+}
+
+signature_20 = text {
+  left: 12px,
+  top: 697.48px,
+  width: 362px,
+  contents: "Till we meet again,\nPi",
+  font-family: "Georgia",
+  font-size: 18,
+  line-height: 1.5,
+  fill: rgb(9.8%, 9.8%, 9.8%)
+}
+
+letter_15 = frame {
+  width: 382px,
+  height: 879.17px,
+  children: [postcard_stamp_16, h2_17, dateline_18, p_19, signature_20],
+  overflow: .scroll
+}
+
+reading_layout_14 = frame {
+  left: 0px,
+  top: 92.59px,
+  width: 382px,
+  height: 879.17px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [letter_15],
+  overflow: .visible
+}
+
+correspondence_7 = frame {
+  left: 4px,
+  top: 224.78px,
+  width: 382px,
+  height: 971.77px,
+  children: [grid_header_8, reading_layout_14],
+  overflow: .visible
+}
+
+export collection_1 = frame {
+  width: 390px,
+  height: 1250px,
+  children: [introduction_2, correspondence_7],
+  fill: .white,
+  overflow: .clip,
+  left: 0px,
+  top: 0px
+}

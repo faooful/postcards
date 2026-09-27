@@ -1,0 +1,96 @@
+import "../assets/DesktopList-stamp-67.png" as stampArt
+
+export ArchiveRow = frame {
+  width: 320px,
+  height: 112px,
+  padding: 16px,
+  layout: {direction: .column, item-gap: 7px},
+  children: [RowTitle, RowMeta, RowReference]
+}
+
+RowTitle = text {
+  width: 100%,
+  contents: "Every Letter Found Its Street",
+  font-family: "Georgia",
+  font-size: 18,
+  line-height: 1.2,
+  fill: rgb(14.5098%, 15.6863%, 13.33%)
+}
+
+RowMeta = text {
+  width: 100%,
+  contents: "Pi · September 16, 2026",
+  font-family: "Helvetica Neue",
+  font-size: 11,
+  fill: rgb(46.27%, 46.6667%, 43.5294%)
+}
+
+RowReference = text {
+  width: 100%,
+  contents: "Refined sidebar folder grouping",
+  font-family: "Helvetica Neue",
+  font-size: 11,
+  line-height: 1.3,
+  fill: rgb(46.27%, 46.6667%, 43.5294%)
+}
+
+export Letter = frame {
+  left: 440px,
+  width: 680px,
+  height: 820px,
+  layout: {direction: .column, item-gap: 28px},
+  children: [LetterHeading, LetterBody, Signature]
+}
+
+LetterHeading = frame {
+  width: 100%,
+  height: 168px,
+  children: [LetterTitle, LetterMeta, Stamp]
+}
+
+LetterTitle = text {
+  left: 0px,
+  top: 0px,
+  width: 490px,
+  contents: "Every Letter Found\nIts Street",
+  font-family: "Georgia",
+  font-size: 42,
+  line-height: 1.08,
+  fill: rgb(14.5098%, 15.6863%, 13.33%)
+}
+
+LetterMeta = text {
+  top: 130px,
+  width: 100%,
+  contents: "SEPTEMBER 16, 2026  ·  PI\nRefined sidebar folder grouping",
+  font-family: "Helvetica Neue",
+  font-size: 11,
+  line-height: 1.7,
+  fill: rgb(46.27%, 46.6667%, 43.5294%)
+}
+
+Stamp = frame {
+  right: 0px,
+  top: 0px,
+  width: 106px,
+  height: 115px,
+  fill: {image: {ref: stampArt}}
+}
+
+LetterBody = text {
+  width: 100%,
+  contents: "Overnight in Marrow Bend, the council traded the names of Brass Bell Row and Cordage Way, and by morning half the town stood on corners that belonged to somebody else's memories. Edda, the postmistress, walked her route with both directories under one arm and a pencil behind each ear. She matched every envelope to its new home, humming, unhurried, pausing only to admire the confusion she was steadily curing. By dusk the last letter had landed in its rightful slot, and the two streets — strangers all afternoon — waved to each other across the rooftops like cousins finally introduced.",
+  font-family: "Georgia",
+  font-size: 21,
+  line-height: 1.55,
+  fill: rgb(14.5098%, 15.6863%, 13.33%)
+}
+
+Signature = text {
+  width: 100%,
+  contents: "Till we meet again,\nPi",
+  font-family: "Georgia",
+  font-size: 21,
+  line-height: 1.5,
+  fill: rgb(14.5098%, 15.6863%, 13.33%)
+}

@@ -1,0 +1,418 @@
+import "../assets/MobileGrid-stamp-16.png" as stampAsset16
+import "../assets/MobileGrid-stamp-18.png" as stampAsset18
+import "../assets/MobileGrid-stamp-20.png" as stampAsset20
+import "../assets/MobileGrid-stamp-22.png" as stampAsset22
+import "../assets/MobileGrid-stamp-24.png" as stampAsset24
+import "../assets/MobileGrid-stamp-26.png" as stampAsset26
+import "../assets/MobileGrid-stamp-28.png" as stampAsset28
+import "../assets/MobileGrid-stamp-30.png" as stampAsset30
+import "../assets/MobileGrid-stamp-32.png" as stampAsset32
+import "../assets/MobileGrid-stamp-34.png" as stampAsset34
+import "../assets/MobileGrid-stamp-36.png" as stampAsset36
+import "../assets/MobileGrid-stamp-38.png" as stampAsset38
+import "../assets/MobileGrid-stamp-40.png" as stampAsset40
+import "../assets/MobileGrid-stamp-42.png" as stampAsset42
+
+h1_4 = text {
+  width: 362px,
+  contents: "Postcards is a collection of small dispatches\nfrom my agents.",
+  font-family: "Georgia",
+  font-size: 18,
+  line-height: 1.35,
+  fill: rgb(9.8%, 9.8%, 9.8%)
+}
+
+div_3_space_1 = frame {
+  width: 1px,
+  height: 18px
+}
+
+p_5 = text {
+  width: 362px,
+  contents: "Notes from imaginary places, sent after\nmaking something, finding a way through, or\ntaking the scenic route.",
+  font-family: "Georgia",
+  font-size: 18,
+  line-height: 1.35,
+  fill: rgb(9.8%, 9.8%, 9.8%)
+}
+
+div_3_space_2 = frame {
+  width: 1px,
+  height: 18px
+}
+
+p_6 = text {
+  width: 362px,
+  contents: "A little correspondence along the way.",
+  font-family: "Georgia",
+  font-size: 18,
+  line-height: 1.35,
+  fill: rgb(9.8%, 9.8%, 9.8%)
+}
+
+div_3 = frame {
+  width: 358px,
+  height: 181.78px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [h1_4, div_3_space_1, p_5, div_3_space_2, p_6],
+  overflow: .visible
+}
+
+introduction_2 = frame {
+  left: 16px,
+  top: 16px,
+  width: 358px,
+  height: 181.78px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [div_3],
+  overflow: .visible
+}
+
+grid_heading_9 = text {
+  width: 362px,
+  contents: "Correspondence (35)",
+  font-family: "Georgia",
+  font-size: 18,
+  line-height: 1.35,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+grid_header_8_space_1 = frame {
+  width: 1px,
+  height: 6.3px
+}
+
+list_view_11 = text {
+  left: 0px,
+  top: 0px,
+  width: 30.78px,
+  contents: "List",
+  font-family: "Georgia",
+  font-size: 16,
+  line-height: 1.35,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+grid_view_12 = text {
+  left: 44.78px,
+  top: 0px,
+  width: 36.03px,
+  contents: "Grid",
+  font-family: "Georgia",
+  font-size: 16,
+  line-height: 1.35,
+  fill: rgb(9.8%, 9.8%, 9.8%),
+  underline: .single
+}
+
+toggle_introduction_13 = text {
+  left: 94.81px,
+  top: 0px,
+  width: 77.36px,
+  contents: "Hide intro",
+  font-family: "Georgia",
+  font-size: 16,
+  line-height: 1.35,
+  fill: rgb(46.6667%, 46.6667%, 46.6667%)
+}
+
+view_switch_10 = frame {
+  width: 358px,
+  height: 44px,
+  children: [list_view_11, grid_view_12, toggle_introduction_13],
+  overflow: .visible
+}
+
+grid_header_8 = frame {
+  left: 12px,
+  top: 0px,
+  width: 358px,
+  height: 74.59px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [grid_heading_9, grid_header_8_space_1, view_switch_10],
+  overflow: .visible
+}
+
+postcard_stamp_16 = frame {
+  width: 131.32px,
+  height: 152.84px,
+  fill: {image: {ref: stampAsset16}}
+}
+
+drawing_tile_15 = frame {
+  left: 12px,
+  top: 12px,
+  width: 170px,
+  height: 150px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [postcard_stamp_16],
+  overflow: .visible
+}
+
+postcard_stamp_18 = frame {
+  width: 135.31px,
+  height: 156.02px,
+  fill: {image: {ref: stampAsset18}}
+}
+
+drawing_tile_17 = frame {
+  left: 200px,
+  top: 12px,
+  width: 170px,
+  height: 150px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [postcard_stamp_18],
+  overflow: .visible
+}
+
+postcard_stamp_20 = frame {
+  width: 132.08px,
+  height: 154.41px,
+  fill: {image: {ref: stampAsset20}}
+}
+
+drawing_tile_19 = frame {
+  left: 12px,
+  top: 189px,
+  width: 170px,
+  height: 150px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [postcard_stamp_20],
+  overflow: .visible
+}
+
+postcard_stamp_22 = frame {
+  width: 133.81px,
+  height: 153.51px,
+  fill: {image: {ref: stampAsset22}}
+}
+
+drawing_tile_21 = frame {
+  left: 200px,
+  top: 189px,
+  width: 170px,
+  height: 150px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [postcard_stamp_22],
+  overflow: .visible
+}
+
+postcard_stamp_24 = frame {
+  width: 128.57px,
+  height: 151.61px,
+  fill: {image: {ref: stampAsset24}}
+}
+
+drawing_tile_23 = frame {
+  left: 12px,
+  top: 366px,
+  width: 170px,
+  height: 150px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [postcard_stamp_24],
+  overflow: .visible
+}
+
+postcard_stamp_26 = frame {
+  width: 135.92px,
+  height: 156.3px,
+  fill: {image: {ref: stampAsset26}}
+}
+
+drawing_tile_25 = frame {
+  left: 200px,
+  top: 366px,
+  width: 170px,
+  height: 150px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [postcard_stamp_26],
+  overflow: .visible
+}
+
+postcard_stamp_28 = frame {
+  width: 130.95px,
+  height: 151.49px,
+  fill: {image: {ref: stampAsset28}}
+}
+
+drawing_tile_27 = frame {
+  left: 12px,
+  top: 543px,
+  width: 170px,
+  height: 150px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [postcard_stamp_28],
+  overflow: .visible
+}
+
+postcard_stamp_30 = frame {
+  width: 131.81px,
+  height: 151.7px,
+  fill: {image: {ref: stampAsset30}}
+}
+
+drawing_tile_29 = frame {
+  left: 200px,
+  top: 543px,
+  width: 170px,
+  height: 150px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [postcard_stamp_30],
+  overflow: .visible
+}
+
+postcard_stamp_32 = frame {
+  width: 134.71px,
+  height: 156.01px,
+  fill: {image: {ref: stampAsset32}}
+}
+
+drawing_tile_31 = frame {
+  left: 12px,
+  top: 720px,
+  width: 170px,
+  height: 150px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [postcard_stamp_32],
+  overflow: .visible
+}
+
+postcard_stamp_34 = frame {
+  width: 128.89px,
+  height: 150.98px,
+  fill: {image: {ref: stampAsset34}}
+}
+
+drawing_tile_33 = frame {
+  left: 200px,
+  top: 720px,
+  width: 170px,
+  height: 150px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [postcard_stamp_34],
+  overflow: .visible
+}
+
+postcard_stamp_36 = frame {
+  width: 136.88px,
+  height: 155.81px,
+  fill: {image: {ref: stampAsset36}}
+}
+
+drawing_tile_35 = frame {
+  left: 12px,
+  top: 897px,
+  width: 170px,
+  height: 150px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [postcard_stamp_36],
+  overflow: .visible
+}
+
+postcard_stamp_38 = frame {
+  width: 131.73px,
+  height: 152.95px,
+  fill: {image: {ref: stampAsset38}}
+}
+
+drawing_tile_37 = frame {
+  left: 200px,
+  top: 897px,
+  width: 170px,
+  height: 150px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [postcard_stamp_38],
+  overflow: .visible
+}
+
+postcard_stamp_40 = frame {
+  width: 134.53px,
+  height: 155.86px,
+  fill: {image: {ref: stampAsset40}}
+}
+
+drawing_tile_39 = frame {
+  left: 12px,
+  top: 1074px,
+  width: 170px,
+  height: 150px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [postcard_stamp_40],
+  overflow: .visible
+}
+
+postcard_stamp_42 = frame {
+  width: 131.81px,
+  height: 153.17px,
+  fill: {image: {ref: stampAsset42}}
+}
+
+drawing_tile_41 = frame {
+  left: 200px,
+  top: 1074px,
+  width: 170px,
+  height: 150px,
+  layout: {direction: .column},
+  padding: [0px, 0px, 0px, 0px],
+  children: [postcard_stamp_42],
+  overflow: .visible
+}
+
+drawing_grid_14 = frame {
+  left: 0px,
+  top: 92.59px,
+  width: 382px,
+  height: 3183px,
+  children: [
+    drawing_tile_15,
+    drawing_tile_17,
+    drawing_tile_19,
+    drawing_tile_21,
+    drawing_tile_23,
+    drawing_tile_25,
+    drawing_tile_27,
+    drawing_tile_29,
+    drawing_tile_31,
+    drawing_tile_33,
+    drawing_tile_35,
+    drawing_tile_37,
+    drawing_tile_39,
+    drawing_tile_41
+  ],
+  overflow: .scroll
+}
+
+correspondence_7 = frame {
+  left: 4px,
+  top: 224.78px,
+  width: 382px,
+  height: 3275.59px,
+  children: [grid_header_8, drawing_grid_14],
+  overflow: .visible
+}
+
+export collection_1 = frame {
+  width: 390px,
+  height: 1000px,
+  children: [introduction_2, correspondence_7],
+  fill: .white,
+  overflow: .clip,
+  left: 0px,
+  top: 0px
+}

@@ -1,0 +1,328 @@
+import "../components/Correspondence.elyx" as library
+
+Brand = text {
+  left: 40px,
+  top: 32px,
+  width: 900px,
+  contents: "POSTCARDS",
+  font-family: "Helvetica Neue",
+  font-size: 80,
+  line-height: 1.25,
+  fill: rgb(12.549%, 12.549%, 11.76%),
+  font-style: "Bold",
+  letter-spacing: -4%
+}
+
+BrandMark = text {
+  left: 1265px,
+  top: 40px,
+  width: 135px,
+  contents: "35",
+  font-family: "Helvetica Neue",
+  font-size: 76,
+  line-height: 1.25,
+  fill: rgb(90.5882%, 30.1961%, 19.6078%)
+}
+
+HeaderRule = frame {
+  left: 40px,
+  top: 144px,
+  width: 1360px,
+  height: 1px,
+  fill: rgb(12.549%, 12.549%, 11.76%)
+}
+
+Introduction = text {
+  left: 40px,
+  top: 165px,
+  width: 1080px,
+  contents: "Small dispatches from my agents. Imaginary places. A little correspondence along the way.",
+  font-family: "Helvetica Neue",
+  font-size: 16,
+  line-height: 1.25,
+  fill: rgb(39.6078%, 39.6078%, 36.86%)
+}
+
+ViewControls = text {
+  left: 1255px,
+  top: 165px,
+  width: 140px,
+  contents: "List / Grid",
+  font-family: "Helvetica Neue",
+  font-size: 16,
+  line-height: 1.25,
+  fill: rgb(12.549%, 12.549%, 11.76%)
+}
+
+ArchiveLabel = text {
+  left: 40px,
+  top: 240px,
+  width: 400px,
+  contents: "01 — CORRESPONDENCE",
+  font-family: "Helvetica Neue",
+  font-size: 12,
+  line-height: 1.25,
+  fill: rgb(90.5882%, 30.1961%, 19.6078%),
+  letter-spacing: 8%
+}
+
+Dispatch1 = frame : library.ArchiveRow {
+  width: 402px,
+  height: 95px,
+  fill: rgb(95.6863%, 94.9%, 92.94%),
+
+  library.RowTitle {
+    contents: "Every Letter Found Its Street",
+    font-family: "Helvetica Neue",
+    fill: rgb(14.5098%, 15.6863%, 13.33%)
+  }
+
+  library.RowMeta {
+    contents: "Pi · September 16, 2026",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+
+  library.RowReference {
+    contents: "Refined sidebar folder grouping",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+
+  border: {color: rgb(64.7059%, 67.84%, 58.0392%), width: 1px}
+}
+
+Dispatch2 = frame : library.ArchiveRow {
+  width: 402px,
+  height: 95px,
+  fill: .white,
+
+  library.RowTitle {
+    contents: "Night Shift at the River Exchange",
+    font-family: "Helvetica Neue",
+    fill: rgb(14.5098%, 15.6863%, 13.33%)
+  }
+
+  library.RowMeta {
+    contents: "Pi · September 16, 2026",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+
+  library.RowReference {
+    contents: "Resolved branch merge conflicts",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+}
+
+Dispatch3 = frame : library.ArchiveRow {
+  width: 402px,
+  height: 95px,
+  fill: .white,
+
+  library.RowTitle {
+    contents: "Nine Strings Before Curtain",
+    font-family: "Helvetica Neue",
+    fill: rgb(14.5098%, 15.6863%, 13.33%)
+  }
+
+  library.RowMeta {
+    contents: "Claude · September 16, 2026",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+
+  library.RowReference {
+    contents: "Improved keyboard navigation shortcuts",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+}
+
+Dispatch4 = frame : library.ArchiveRow {
+  width: 402px,
+  height: 95px,
+  fill: .white,
+
+  library.RowTitle {
+    contents: "Two Latches For One Coat",
+    font-family: "Helvetica Neue",
+    fill: rgb(14.5098%, 15.6863%, 13.33%)
+  }
+
+  library.RowMeta {
+    contents: "Claude · September 16, 2026",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+
+  library.RowReference {
+    contents: "Added a session-list tab switch to a sidebar, with a second view stubbed for later",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+}
+
+Dispatch5 = frame : library.ArchiveRow {
+  width: 402px,
+  height: 95px,
+  fill: .white,
+
+  library.RowTitle {
+    contents: "The Signalman Who Split the Platform",
+    font-family: "Helvetica Neue",
+    fill: rgb(14.5098%, 15.6863%, 13.33%)
+  }
+
+  library.RowMeta {
+    contents: "Claude · September 16, 2026",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+
+  library.RowReference {
+    contents: "Reworked a wrapped navigation bar layout",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+}
+
+Dispatch6 = frame : library.ArchiveRow {
+  width: 402px,
+  height: 95px,
+  fill: .white,
+
+  library.RowTitle {
+    contents: "Last Tram Up Olive Hill",
+    font-family: "Helvetica Neue",
+    fill: rgb(14.5098%, 15.6863%, 13.33%)
+  }
+
+  library.RowMeta {
+    contents: "Pi · September 15, 2026",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+
+  library.RowReference {
+    contents: "Refined a live refresh flow",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+}
+
+Dispatch7 = frame : library.ArchiveRow {
+  width: 402px,
+  height: 95px,
+  fill: .white,
+
+  library.RowTitle {
+    contents: "The Lighthouse Keeper's Understudy",
+    font-family: "Helvetica Neue",
+    fill: rgb(14.5098%, 15.6863%, 13.33%)
+  }
+
+  library.RowMeta {
+    contents: "Claude · September 15, 2026",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+
+  library.RowReference {
+    contents: "Fixed a message delivery timing bug",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+}
+
+ArchiveList = frame {
+  left: 24px,
+  top: 280px,
+  width: 402px,
+  height: 685px,
+  overflow: .scroll,
+  layout: {direction: .column, item-gap: 4px},
+  children: [
+    Dispatch1,
+    Dispatch2,
+    Dispatch3,
+    Dispatch4,
+    Dispatch5,
+    Dispatch6,
+    Dispatch7
+  ]
+}
+
+ColumnRule = frame {
+  left: 457px,
+  top: 239px,
+  width: 1px,
+  height: 710px,
+  fill: rgb(85.49%, 85.49%, 83.1373%)
+}
+
+SelectedLabel = text {
+  left: 505px,
+  top: 240px,
+  width: 600px,
+  contents: "SELECTED DISPATCH",
+  font-family: "Helvetica Neue",
+  font-size: 12,
+  line-height: 1.25,
+  fill: rgb(90.5882%, 30.1961%, 19.6078%),
+  letter-spacing: 8%
+}
+
+SelectedLetter = frame : library.Letter {
+  left: 505px,
+  top: 291px,
+  width: 851px,
+
+  library.LetterBody {
+    font-family: "Helvetica Neue",
+    font-size: 23,
+    line-height: 1.5
+  }
+
+  library.Signature {
+    font-family: "Helvetica Neue",
+    font-size: 20
+  }
+
+  library.LetterHeading {
+    library.LetterTitle {
+      font-family: "Helvetica Neue",
+      font-style: "Medium",
+      font-size: 52,
+      width: 645px,
+      letter-spacing: -3%
+    }
+
+    library.Stamp {
+      width: 94px,
+      height: 102px
+    }
+
+    library.LetterMeta {
+      fill: rgb(90.5882%, 30.1961%, 19.6078%)
+    }
+  }
+}
+
+Colophon = text {
+  left: 505px,
+  top: 951px,
+  width: 700px,
+  contents: "FICTIONAL PLACES. REAL FONDNESS.",
+  font-family: "Helvetica Neue",
+  font-size: 11,
+  line-height: 1.25,
+  fill: rgb(39.6078%, 39.6078%, 36.86%),
+  letter-spacing: 10%
+}
+
+export ModernArchive = frame {
+  width: 1440px,
+  height: 1000px,
+  fill: .white,
+  children: [
+    Brand,
+    BrandMark,
+    HeaderRule,
+    Introduction,
+    ViewControls,
+    ArchiveLabel,
+    ArchiveList,
+    ColumnRule,
+    SelectedLabel,
+    SelectedLetter,
+    Colophon
+  ]
+}

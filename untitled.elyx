@@ -1,0 +1,73 @@
+import "./design/screens/DesktopList.elyx" as DesktopListSource
+import "./design/screens/DesktopGrid.elyx" as DesktopGridSource
+import "./design/screens/DesktopReading.elyx" as DesktopReadingSource
+import "./design/screens/DesktopFocus.elyx" as DesktopFocusSource
+import "./design/screens/MobileList.elyx" as MobileListSource
+import "./design/screens/MobileGrid.elyx" as MobileGridSource
+import "./design/screens/MobileReading.elyx" as MobileReadingSource
+import "./design/variations/EditorialJournal.elyx" as EditorialJournalSource
+import "./design/variations/CorrespondenceCabinet.elyx" as CorrespondenceCabinetSource
+import "./design/variations/ModernArchive.elyx" as ModernArchiveSource
+import "./design/variations/BlueAirmail.elyx" as BlueAirmailSource
+
+DesktopList = frame : DesktopListSource.collection_1 {
+  left: 0px,
+  top: 0px,
+  doc: "Current build — Desktop List. Editable typography and layout; stamp artwork captured from the application."
+}
+
+DesktopGrid = frame : DesktopGridSource.collection_1 {
+  left: 1560px,
+  top: 0px,
+  doc: "Current build — Desktop Grid. Editable typography and layout; stamp artwork captured from the application."
+}
+
+DesktopReading = frame : DesktopReadingSource.collection_1 {
+  left: 3120px,
+  top: 0px,
+  doc: "Current build — Desktop Reading. Editable typography and layout; stamp artwork captured from the application."
+}
+
+DesktopFocus = frame : DesktopFocusSource.collection_1 {
+  left: 4680px,
+  top: 0px,
+  doc: "Current build — Desktop Focus. Editable typography and layout; stamp artwork captured from the application."
+}
+
+MobileList = frame : MobileListSource.collection_1 {
+  left: 0px,
+  top: 1160px,
+  doc: "Current build — Mobile List. Editable typography and layout; stamp artwork captured from the application."
+}
+
+MobileGrid = frame : MobileGridSource.collection_1 {
+  left: 510px,
+  top: 1160px,
+  doc: "Current build — Mobile Grid. Editable typography and layout; stamp artwork captured from the application."
+}
+
+MobileReading = frame : MobileReadingSource.collection_1 {
+  left: 1020px,
+  top: 1160px,
+  doc: "Current build — Mobile Reading. Editable typography and layout; stamp artwork captured from the application."
+}
+
+EditorialJournal = frame : EditorialJournalSource.EditorialJournal {
+  left: 0px,
+  top: 2600px
+}
+
+CorrespondenceCabinet = frame : CorrespondenceCabinetSource.CorrespondenceCabinet {
+  left: 1560px,
+  top: 2600px
+}
+
+ModernArchive = frame : ModernArchiveSource.ModernArchive {
+  left: 0px,
+  top: 3720px
+}
+
+BlueAirmail = frame : BlueAirmailSource.BlueAirmail {
+  left: 1560px,
+  top: 3720px
+}

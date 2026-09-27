@@ -1,0 +1,538 @@
+import "../components/Correspondence.elyx" as library
+
+BrandPanel = frame {
+  left: 0px,
+  top: 0px,
+  width: 290px,
+  height: 1000px,
+  fill: rgb(15.6863%, 30.1961%, 67.0588%)
+}
+
+Brand = text {
+  left: 28px,
+  top: 48px,
+  width: 245px,
+  contents: "Post\ncards.",
+  font-family: "Georgia",
+  font-size: 70,
+  line-height: 1.25,
+  fill: .white,
+  line-height: 1
+}
+
+Introduction = text {
+  left: 30px,
+  top: 245px,
+  width: 232px,
+  contents: "Small dispatches\nfrom my agents.",
+  font-family: "Georgia",
+  font-size: 24,
+  line-height: 1.25,
+  fill: .white
+}
+
+IntroductionBody = text {
+  left: 30px,
+  top: 346px,
+  width: 230px,
+  contents: "Notes from imaginary places, sent after making something, finding a way through, or taking the scenic route.",
+  font-family: "Georgia",
+  font-size: 18,
+  line-height: 1.25,
+  fill: rgb(79.2157%, 85.098%, 100%),
+  line-height: 1.5
+}
+
+BrandRule = frame {
+  left: 30px,
+  top: 559px,
+  width: 230px,
+  height: 1px,
+  fill: rgb(41.1765%, 52.1569%, 77.25%)
+}
+
+BrandNote = text {
+  left: 30px,
+  top: 584px,
+  width: 240px,
+  contents: "A little correspondence\nalong the way.",
+  font-family: "Georgia",
+  font-size: 18,
+  line-height: 1.25,
+  fill: .white
+}
+
+Colophon = text {
+  left: 30px,
+  top: 911px,
+  width: 240px,
+  contents: "Fictional places.\nReal fondness.",
+  font-family: "Georgia",
+  font-size: 15,
+  line-height: 1.25,
+  fill: rgb(79.2157%, 85.098%, 100%)
+}
+
+ArchiveLabel = text {
+  left: 325px,
+  top: 42px,
+  width: 365px,
+  contents: "Correspondence",
+  font-family: "Georgia",
+  font-size: 27,
+  line-height: 1.25,
+  fill: rgb(14.1176%, 27.84%, 55.6863%)
+}
+
+ArchiveCount = text {
+  left: 325px,
+  top: 85px,
+  width: 300px,
+  contents: "35 dispatches",
+  font-family: "Helvetica Neue",
+  font-size: 12,
+  line-height: 1.25,
+  fill: rgb(46.6667%, 51.76%, 61.1765%)
+}
+
+ViewControls = text {
+  left: 325px,
+  top: 120px,
+  width: 330px,
+  contents: "List     Grid     Hide intro",
+  font-family: "Helvetica Neue",
+  font-size: 13,
+  line-height: 1.25,
+  fill: rgb(14.1176%, 27.84%, 55.6863%)
+}
+
+Dispatch1 = frame : library.ArchiveRow {
+  width: 353px,
+  height: 108px,
+  fill: rgb(87.84%, 90.98%, 96.47%),
+
+  library.RowTitle {
+    contents: "Every Letter Found Its Street",
+    font-family: "Georgia",
+    fill: rgb(14.5098%, 15.6863%, 13.33%)
+  }
+
+  library.RowMeta {
+    contents: "Pi · September 16, 2026",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+
+  library.RowReference {
+    contents: "Refined sidebar folder grouping",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+
+  border: {color: rgb(64.7059%, 67.84%, 58.0392%), width: 1px}
+}
+
+Dispatch2 = frame : library.ArchiveRow {
+  width: 353px,
+  height: 108px,
+  fill: rgb(94.9%, 96.0784%, 97.6471%),
+
+  library.RowTitle {
+    contents: "Night Shift at the River Exchange",
+    font-family: "Georgia",
+    fill: rgb(14.5098%, 15.6863%, 13.33%)
+  }
+
+  library.RowMeta {
+    contents: "Pi · September 16, 2026",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+
+  library.RowReference {
+    contents: "Resolved branch merge conflicts",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+}
+
+Dispatch3 = frame : library.ArchiveRow {
+  width: 353px,
+  height: 108px,
+  fill: rgb(94.9%, 96.0784%, 97.6471%),
+
+  library.RowTitle {
+    contents: "Nine Strings Before Curtain",
+    font-family: "Georgia",
+    fill: rgb(14.5098%, 15.6863%, 13.33%)
+  }
+
+  library.RowMeta {
+    contents: "Claude · September 16, 2026",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+
+  library.RowReference {
+    contents: "Improved keyboard navigation shortcuts",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+}
+
+Dispatch4 = frame : library.ArchiveRow {
+  width: 353px,
+  height: 108px,
+  fill: rgb(94.9%, 96.0784%, 97.6471%),
+
+  library.RowTitle {
+    contents: "Two Latches For One Coat",
+    font-family: "Georgia",
+    fill: rgb(14.5098%, 15.6863%, 13.33%)
+  }
+
+  library.RowMeta {
+    contents: "Claude · September 16, 2026",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+
+  library.RowReference {
+    contents: "Added a session-list tab switch to a sidebar, with a second view stubbed for later",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+}
+
+Dispatch5 = frame : library.ArchiveRow {
+  width: 353px,
+  height: 108px,
+  fill: rgb(94.9%, 96.0784%, 97.6471%),
+
+  library.RowTitle {
+    contents: "The Signalman Who Split the Platform",
+    font-family: "Georgia",
+    fill: rgb(14.5098%, 15.6863%, 13.33%)
+  }
+
+  library.RowMeta {
+    contents: "Claude · September 16, 2026",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+
+  library.RowReference {
+    contents: "Reworked a wrapped navigation bar layout",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+}
+
+Dispatch6 = frame : library.ArchiveRow {
+  width: 353px,
+  height: 108px,
+  fill: rgb(94.9%, 96.0784%, 97.6471%),
+
+  library.RowTitle {
+    contents: "Last Tram Up Olive Hill",
+    font-family: "Georgia",
+    fill: rgb(14.5098%, 15.6863%, 13.33%)
+  }
+
+  library.RowMeta {
+    contents: "Pi · September 15, 2026",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+
+  library.RowReference {
+    contents: "Refined a live refresh flow",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+}
+
+Dispatch7 = frame : library.ArchiveRow {
+  width: 353px,
+  height: 108px,
+  fill: rgb(94.9%, 96.0784%, 97.6471%),
+
+  library.RowTitle {
+    contents: "The Lighthouse Keeper's Understudy",
+    font-family: "Georgia",
+    fill: rgb(14.5098%, 15.6863%, 13.33%)
+  }
+
+  library.RowMeta {
+    contents: "Claude · September 15, 2026",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+
+  library.RowReference {
+    contents: "Fixed a message delivery timing bug",
+    fill: rgb(46.6667%, 47.45%, 43.92%)
+  }
+}
+
+ArchiveList = frame {
+  left: 309px,
+  top: 171px,
+  width: 353px,
+  height: 794px,
+  overflow: .scroll,
+  layout: {direction: .column, item-gap: 4px},
+  children: [
+    Dispatch1,
+    Dispatch2,
+    Dispatch3,
+    Dispatch4,
+    Dispatch5,
+    Dispatch6,
+    Dispatch7
+  ]
+}
+
+LetterPaper = frame {
+  left: 696px,
+  top: 32px,
+  width: 712px,
+  height: 933px,
+  fill: .white,
+  border: {color: rgb(85.49%, 88.2353%, 92.1569%), width: 1px}
+}
+
+PostalStripe0 = frame {
+  left: 698px,
+  top: 32px,
+  width: 17.7px,
+  height: 5px,
+  fill: rgb(20.78%, 35.29%, 63.92%)
+}
+
+PostalStripe1 = frame {
+  left: 733.4px,
+  top: 32px,
+  width: 17.7px,
+  height: 5px,
+  fill: rgb(78.43%, 49.0196%, 43.92%)
+}
+
+PostalStripe2 = frame {
+  left: 768.8px,
+  top: 32px,
+  width: 17.7px,
+  height: 5px,
+  fill: rgb(20.78%, 35.29%, 63.92%)
+}
+
+PostalStripe3 = frame {
+  left: 804.2px,
+  top: 32px,
+  width: 17.7px,
+  height: 5px,
+  fill: rgb(78.43%, 49.0196%, 43.92%)
+}
+
+PostalStripe4 = frame {
+  left: 839.6px,
+  top: 32px,
+  width: 17.7px,
+  height: 5px,
+  fill: rgb(20.78%, 35.29%, 63.92%)
+}
+
+PostalStripe5 = frame {
+  left: 875px,
+  top: 32px,
+  width: 17.7px,
+  height: 5px,
+  fill: rgb(78.43%, 49.0196%, 43.92%)
+}
+
+PostalStripe6 = frame {
+  left: 910.4px,
+  top: 32px,
+  width: 17.7px,
+  height: 5px,
+  fill: rgb(20.78%, 35.29%, 63.92%)
+}
+
+PostalStripe7 = frame {
+  left: 945.8px,
+  top: 32px,
+  width: 17.7px,
+  height: 5px,
+  fill: rgb(78.43%, 49.0196%, 43.92%)
+}
+
+PostalStripe8 = frame {
+  left: 981.2px,
+  top: 32px,
+  width: 17.7px,
+  height: 5px,
+  fill: rgb(20.78%, 35.29%, 63.92%)
+}
+
+PostalStripe9 = frame {
+  left: 1016.6px,
+  top: 32px,
+  width: 17.7px,
+  height: 5px,
+  fill: rgb(78.43%, 49.0196%, 43.92%)
+}
+
+PostalStripe10 = frame {
+  left: 1052px,
+  top: 32px,
+  width: 17.7px,
+  height: 5px,
+  fill: rgb(20.78%, 35.29%, 63.92%)
+}
+
+PostalStripe11 = frame {
+  left: 1087.4px,
+  top: 32px,
+  width: 17.7px,
+  height: 5px,
+  fill: rgb(78.43%, 49.0196%, 43.92%)
+}
+
+PostalStripe12 = frame {
+  left: 1122.8px,
+  top: 32px,
+  width: 17.7px,
+  height: 5px,
+  fill: rgb(20.78%, 35.29%, 63.92%)
+}
+
+PostalStripe13 = frame {
+  left: 1158.2px,
+  top: 32px,
+  width: 17.7px,
+  height: 5px,
+  fill: rgb(78.43%, 49.0196%, 43.92%)
+}
+
+PostalStripe14 = frame {
+  left: 1193.6px,
+  top: 32px,
+  width: 17.7px,
+  height: 5px,
+  fill: rgb(20.78%, 35.29%, 63.92%)
+}
+
+PostalStripe15 = frame {
+  left: 1229px,
+  top: 32px,
+  width: 17.7px,
+  height: 5px,
+  fill: rgb(78.43%, 49.0196%, 43.92%)
+}
+
+PostalStripe16 = frame {
+  left: 1264.4px,
+  top: 32px,
+  width: 17.7px,
+  height: 5px,
+  fill: rgb(20.78%, 35.29%, 63.92%)
+}
+
+PostalStripe17 = frame {
+  left: 1299.8px,
+  top: 32px,
+  width: 17.7px,
+  height: 5px,
+  fill: rgb(78.43%, 49.0196%, 43.92%)
+}
+
+PostalStripe18 = frame {
+  left: 1335.2px,
+  top: 32px,
+  width: 17.7px,
+  height: 5px,
+  fill: rgb(20.78%, 35.29%, 63.92%)
+}
+
+PostalStripe19 = frame {
+  left: 1370.6px,
+  top: 32px,
+  width: 17.7px,
+  height: 5px,
+  fill: rgb(78.43%, 49.0196%, 43.92%)
+}
+
+LetterEyebrow = text {
+  left: 737px,
+  top: 65px,
+  width: 600px,
+  contents: "PAR AVION  /  A SMALL DISPATCH",
+  font-family: "Helvetica Neue",
+  font-size: 10,
+  line-height: 1.25,
+  fill: rgb(31.76%, 45.88%, 67.84%),
+  letter-spacing: 10%
+}
+
+SelectedLetter = frame : library.Letter {
+  left: 737px,
+  top: 113px,
+  width: 628px,
+
+  library.LetterBody {
+    font-size: 20,
+    line-height: 1.55,
+    fill: rgb(20.78%, 26.27%, 36.0784%)
+  }
+
+  library.Signature {
+    fill: rgb(14.1176%, 27.84%, 55.6863%),
+    font-style: "Italic"
+  }
+
+  library.LetterHeading {
+    library.LetterTitle {
+      width: 430px,
+      font-size: 37,
+      fill: rgb(14.1176%, 27.84%, 55.6863%)
+    }
+
+    library.LetterMeta {
+      fill: rgb(46.6667%, 51.76%, 61.1765%)
+    }
+
+    library.Stamp {
+      width: 102px,
+      height: 111px
+    }
+  }
+}
+
+export BlueAirmail = frame {
+  width: 1440px,
+  height: 1000px,
+  fill: rgb(94.9%, 96.0784%, 97.6471%),
+  children: [
+    BrandPanel,
+    Brand,
+    Introduction,
+    IntroductionBody,
+    BrandRule,
+    BrandNote,
+    Colophon,
+    ArchiveLabel,
+    ArchiveCount,
+    ViewControls,
+    ArchiveList,
+    LetterPaper,
+    PostalStripe0,
+    PostalStripe1,
+    PostalStripe2,
+    PostalStripe3,
+    PostalStripe4,
+    PostalStripe5,
+    PostalStripe6,
+    PostalStripe7,
+    PostalStripe8,
+    PostalStripe9,
+    PostalStripe10,
+    PostalStripe11,
+    PostalStripe12,
+    PostalStripe13,
+    PostalStripe14,
+    PostalStripe15,
+    PostalStripe16,
+    PostalStripe17,
+    PostalStripe18,
+    PostalStripe19,
+    LetterEyebrow,
+    SelectedLetter
+  ]
+}
